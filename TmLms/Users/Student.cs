@@ -8,5 +8,7 @@ namespace TmLms.Users
 {
     internal class Student
     {
+        public string StudentName { get; set; }
+        public int Id { get; set; }
     }
 }

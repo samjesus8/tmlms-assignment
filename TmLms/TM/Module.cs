@@ -22,61 +22,30 @@ namespace TmLms.TM
             SIX = 6
         }
 
-        /// <summary>
-        /// Module Code should be unique
-        /// </summary>
-        public string Code { get; set; }
-        
-        /// <summary>
-        /// Module Name
-        /// </summary>
-        public string Name { get; set; }
+        public string Code { get; set; } //Module ID number
+        public string Name { get; set; } //Module name
+        public string Description { get; set; } //Module Description
 
-        /// <summary>
-        /// Module Description
-        /// </summary>
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Level of study of the module
-        /// </summary>
         public LevelEnum Level { get; set; }
-
-        /// <summary>
-        /// Credits of the module
-        /// </summary>
         public CreditEnum Credits { get; set; }
 
-        /// <summary>
-        /// A sorted list to store the members associated with the module
-        /// </summary>
-        public SortedSet<object> Members { get; set; }
+        public SortedSet<object> Members { get; set; } //List to store members in a module
 
-        public Module(string code, object AdminPerson)
+        public Module(string code, string moduleName, string moduleDescription, int credits, object AdminPerson)  //MAIN CONSTRUCTOR
         {
             Code = code;
-            Name = "";
-            Description = "";
+            Name = moduleName; //Parse in Module name from user input
+            Description = moduleDescription; //Parse in Module Description from user input
             Members = new SortedSet<object>();
             Members.Add(AdminPerson);
         }
 
-        /// <summary>
-        /// Make sure when comparing two module objecta are different when their Code is different
-        /// </summary>
-        /// <returns></returns>
-        public override int GetHashCode()
+        public override int GetHashCode() //Method to check for same ID number (Eliminates Conflicts)
         {
             return this.Code.GetHashCode();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns></returns>
-        /// <exception cref="ArgumentNullException"></exception>
-        public override bool Equals(object? obj)
+        public override bool Equals(object? obj) //Error checking for empty IDs
         {
             if (obj == null)
             {

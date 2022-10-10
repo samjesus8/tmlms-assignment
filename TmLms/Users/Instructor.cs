@@ -8,5 +8,11 @@ namespace TmLms.Users
 {
     internal class Instructor
     {
+        public string InstructorName { get; set; }
+
+        public void CreateModule() 
+        {
+
+        }
     }
 }
