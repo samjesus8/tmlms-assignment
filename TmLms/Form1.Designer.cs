@@ -91,7 +91,7 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Student Management System";
             this.ResumeLayout(false);
             this.PerformLayout();
 

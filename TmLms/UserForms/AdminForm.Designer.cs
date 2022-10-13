@@ -191,7 +191,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "AdminForm";
-            this.Text = "AdminForm";
+            this.Text = "Admin Menu";
             this.courseCreatorBox.ResumeLayout(false);
             this.courseCreatorBox.PerformLayout();
             this.ResumeLayout(false);
