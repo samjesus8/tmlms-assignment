@@ -32,6 +32,7 @@
             this.createCourseButton = new System.Windows.Forms.Button();
             this.deleteCourseButton = new System.Windows.Forms.Button();
             this.courseCreatorBox = new System.Windows.Forms.GroupBox();
+            this.instructorBox = new System.Windows.Forms.ComboBox();
             this.deleteModuleButton = new System.Windows.Forms.Button();
             this.createModuleButton = new System.Windows.Forms.Button();
             this.creditsBox = new System.Windows.Forms.TextBox();
@@ -45,7 +46,8 @@
             this.instructorLabel = new System.Windows.Forms.Label();
             this.courseListBox = new System.Windows.Forms.GroupBox();
             this.courseManager = new System.Windows.Forms.CheckedListBox();
-            this.instructorBox = new System.Windows.Forms.ComboBox();
+            this.courseDisplayBox = new System.Windows.Forms.TextBox();
+            this.viewButton = new System.Windows.Forms.Button();
             this.courseCreatorBox.SuspendLayout();
             this.courseListBox.SuspendLayout();
             this.SuspendLayout();
@@ -101,6 +103,14 @@
             this.courseCreatorBox.TabIndex = 3;
             this.courseCreatorBox.TabStop = false;
             this.courseCreatorBox.Text = "Course Creator";
+            // 
+            // instructorBox
+            // 
+            this.instructorBox.FormattingEnabled = true;
+            this.instructorBox.Location = new System.Drawing.Point(4, 179);
+            this.instructorBox.Name = "instructorBox";
+            this.instructorBox.Size = new System.Drawing.Size(362, 28);
+            this.instructorBox.TabIndex = 16;
             // 
             // deleteModuleButton
             // 
@@ -204,6 +214,8 @@
             // 
             // courseListBox
             // 
+            this.courseListBox.Controls.Add(this.viewButton);
+            this.courseListBox.Controls.Add(this.courseDisplayBox);
             this.courseListBox.Controls.Add(this.courseManager);
             this.courseListBox.Location = new System.Drawing.Point(456, 57);
             this.courseListBox.Name = "courseListBox";
@@ -217,16 +229,27 @@
             this.courseManager.FormattingEnabled = true;
             this.courseManager.Location = new System.Drawing.Point(6, 26);
             this.courseManager.Name = "courseManager";
-            this.courseManager.Size = new System.Drawing.Size(434, 488);
+            this.courseManager.Size = new System.Drawing.Size(434, 246);
             this.courseManager.TabIndex = 0;
             // 
-            // instructorBox
+            // courseDisplayBox
             // 
-            this.instructorBox.FormattingEnabled = true;
-            this.instructorBox.Location = new System.Drawing.Point(4, 179);
-            this.instructorBox.Name = "instructorBox";
-            this.instructorBox.Size = new System.Drawing.Size(362, 28);
-            this.instructorBox.TabIndex = 16;
+            this.courseDisplayBox.Location = new System.Drawing.Point(6, 310);
+            this.courseDisplayBox.Multiline = true;
+            this.courseDisplayBox.Name = "courseDisplayBox";
+            this.courseDisplayBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.courseDisplayBox.Size = new System.Drawing.Size(434, 215);
+            this.courseDisplayBox.TabIndex = 1;
+            // 
+            // viewButton
+            // 
+            this.viewButton.Location = new System.Drawing.Point(6, 275);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(94, 29);
+            this.viewButton.TabIndex = 2;
+            this.viewButton.Text = "View";
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
             // AdminForm
             // 
@@ -243,6 +266,7 @@
             this.courseCreatorBox.ResumeLayout(false);
             this.courseCreatorBox.PerformLayout();
             this.courseListBox.ResumeLayout(false);
+            this.courseListBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,5 +292,7 @@
         private Button deleteModuleButton;
         private Button createModuleButton;
         private ComboBox instructorBox;
+        private Button viewButton;
+        private TextBox courseDisplayBox;
     }
 }

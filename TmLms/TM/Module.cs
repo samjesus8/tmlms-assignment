@@ -37,7 +37,6 @@ namespace TmLms.TM
             Name = moduleName; //Parse in Module name from user input
             Description = moduleDescription; //Parse in Module Description from user input
             Members = new SortedSet<object>();
-            Members.Add(AdminPerson);
         }
 
         public override int GetHashCode() //Method to check for same ID number (Eliminates Conflicts)
