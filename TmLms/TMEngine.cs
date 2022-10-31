@@ -13,7 +13,7 @@ namespace TmLms
         public Dictionary<int, TM.Module> ModuleDictionary { get; set; }
 
 
-        private static readonly TMEngine instance = new TMEngine();
+        public static readonly TMEngine instance = new TMEngine();
 
         static TMEngine()
         {
