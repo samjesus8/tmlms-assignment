@@ -32,17 +32,20 @@
             this.createCourseButton = new System.Windows.Forms.Button();
             this.deleteCourseButton = new System.Windows.Forms.Button();
             this.courseCreatorBox = new System.Windows.Forms.GroupBox();
-            this.courseAcceptButton = new System.Windows.Forms.Button();
+            this.creditsBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.courseDescriptionBox = new System.Windows.Forms.TextBox();
             this.courseDescriptionLabel = new System.Windows.Forms.Label();
-            this.courseLengthBox = new System.Windows.Forms.ComboBox();
+            this.courseLevelBox = new System.Windows.Forms.ComboBox();
             this.courseLengthLabel = new System.Windows.Forms.Label();
             this.courseNameBox = new System.Windows.Forms.TextBox();
             this.courseNameLabel = new System.Windows.Forms.Label();
             this.instructorLabel = new System.Windows.Forms.Label();
             this.instructorNameBox = new System.Windows.Forms.TextBox();
             this.courseListBox = new System.Windows.Forms.GroupBox();
+            this.courseManager = new System.Windows.Forms.CheckedListBox();
             this.courseCreatorBox.SuspendLayout();
+            this.courseListBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -76,10 +79,11 @@
             // 
             // courseCreatorBox
             // 
-            this.courseCreatorBox.Controls.Add(this.courseAcceptButton);
+            this.courseCreatorBox.Controls.Add(this.creditsBox);
+            this.courseCreatorBox.Controls.Add(this.label2);
             this.courseCreatorBox.Controls.Add(this.courseDescriptionBox);
             this.courseCreatorBox.Controls.Add(this.courseDescriptionLabel);
-            this.courseCreatorBox.Controls.Add(this.courseLengthBox);
+            this.courseCreatorBox.Controls.Add(this.courseLevelBox);
             this.courseCreatorBox.Controls.Add(this.courseLengthLabel);
             this.courseCreatorBox.Controls.Add(this.courseNameBox);
             this.courseCreatorBox.Controls.Add(this.courseNameLabel);
@@ -94,15 +98,21 @@
             this.courseCreatorBox.TabStop = false;
             this.courseCreatorBox.Text = "Course Creator";
             // 
-            // courseAcceptButton
+            // creditsBox
             // 
-            this.courseAcceptButton.Location = new System.Drawing.Point(6, 496);
-            this.courseAcceptButton.Name = "courseAcceptButton";
-            this.courseAcceptButton.Size = new System.Drawing.Size(94, 29);
-            this.courseAcceptButton.TabIndex = 11;
-            this.courseAcceptButton.Text = "Accept";
-            this.courseAcceptButton.UseVisualStyleBackColor = true;
-            this.courseAcceptButton.Click += new System.EventHandler(this.courseAcceptButton_Click);
+            this.creditsBox.Location = new System.Drawing.Point(176, 310);
+            this.creditsBox.Name = "creditsBox";
+            this.creditsBox.Size = new System.Drawing.Size(125, 27);
+            this.creditsBox.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(176, 286);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 20);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Credits";
             // 
             // courseDescriptionBox
             // 
@@ -122,22 +132,26 @@
             this.courseDescriptionLabel.TabIndex = 9;
             this.courseDescriptionLabel.Text = "Course Description";
             // 
-            // courseLengthBox
+            // courseLevelBox
             // 
-            this.courseLengthBox.FormattingEnabled = true;
-            this.courseLengthBox.Location = new System.Drawing.Point(6, 309);
-            this.courseLengthBox.Name = "courseLengthBox";
-            this.courseLengthBox.Size = new System.Drawing.Size(151, 28);
-            this.courseLengthBox.TabIndex = 8;
+            this.courseLevelBox.FormattingEnabled = true;
+            this.courseLevelBox.Items.AddRange(new object[] {
+            "4",
+            "5",
+            "6"});
+            this.courseLevelBox.Location = new System.Drawing.Point(6, 309);
+            this.courseLevelBox.Name = "courseLevelBox";
+            this.courseLevelBox.Size = new System.Drawing.Size(151, 28);
+            this.courseLevelBox.TabIndex = 8;
             // 
             // courseLengthLabel
             // 
             this.courseLengthLabel.AutoSize = true;
             this.courseLengthLabel.Location = new System.Drawing.Point(6, 286);
             this.courseLengthLabel.Name = "courseLengthLabel";
-            this.courseLengthLabel.Size = new System.Drawing.Size(103, 20);
+            this.courseLengthLabel.Size = new System.Drawing.Size(92, 20);
             this.courseLengthLabel.TabIndex = 7;
-            this.courseLengthLabel.Text = "Course Length";
+            this.courseLengthLabel.Text = "Course Level";
             // 
             // courseNameBox
             // 
@@ -173,12 +187,21 @@
             // 
             // courseListBox
             // 
+            this.courseListBox.Controls.Add(this.courseManager);
             this.courseListBox.Location = new System.Drawing.Point(456, 57);
             this.courseListBox.Name = "courseListBox";
             this.courseListBox.Size = new System.Drawing.Size(446, 531);
             this.courseListBox.TabIndex = 4;
             this.courseListBox.TabStop = false;
             this.courseListBox.Text = "List of Courses";
+            // 
+            // courseManager
+            // 
+            this.courseManager.FormattingEnabled = true;
+            this.courseManager.Location = new System.Drawing.Point(6, 26);
+            this.courseManager.Name = "courseManager";
+            this.courseManager.Size = new System.Drawing.Size(434, 488);
+            this.courseManager.TabIndex = 0;
             // 
             // AdminForm
             // 
@@ -194,6 +217,7 @@
             this.Text = "Admin Menu";
             this.courseCreatorBox.ResumeLayout(false);
             this.courseCreatorBox.PerformLayout();
+            this.courseListBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +229,7 @@
         private Button createCourseButton;
         private Button deleteCourseButton;
         private GroupBox courseCreatorBox;
-        private ComboBox courseLengthBox;
+        private ComboBox courseLevelBox;
         private Label courseLengthLabel;
         private TextBox courseNameBox;
         private Label courseNameLabel;
@@ -214,6 +238,8 @@
         private GroupBox courseListBox;
         private TextBox courseDescriptionBox;
         private Label courseDescriptionLabel;
-        private Button courseAcceptButton;
+        private TextBox creditsBox;
+        private Label label2;
+        private CheckedListBox courseManager;
     }
 }

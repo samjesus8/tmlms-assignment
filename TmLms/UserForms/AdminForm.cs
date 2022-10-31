@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TmLms.TM;
 
 namespace TmLms.UserForms
 {
@@ -15,36 +16,31 @@ namespace TmLms.UserForms
         public AdminForm()
         {
             InitializeComponent();
-            instructorNameBox.Visible = false; //Sets the creator boxes to not be visible until user presses button
-            courseNameBox.Visible = false;
-            courseLengthBox.Visible = false;
-            courseDescriptionBox.Visible = false;
-
-            instructorLabel.Visible = false;
-            courseNameLabel.Visible = false;
-            courseLengthLabel.Visible = false;
-            courseDescriptionLabel.Visible = false;
         }
 
         private void createCourseButton_Click(object sender, EventArgs e) //Opens the Course Creator
         {
-            instructorNameBox.Visible = true; //Reveals the creator boxes to create a course
-            courseNameBox.Visible = true;
-            courseLengthBox.Visible = true;
-            courseDescriptionBox.Visible = true;
+            if (((((courseNameBox.Text == "") || instructorNameBox.Text == "") || courseLevelBox.Text == "") || creditsBox.Text == "") || courseDescriptionBox.Text == "")
+            {
+                MessageBox.Show("Please fill out the Course requirements", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else 
+            {
+                int ID = 0; //Temporary Variable for storing multiple Courses
 
-            instructorLabel.Visible = true;
-            courseNameLabel.Visible = true;
-            courseLengthLabel.Visible = true;
-            courseDescriptionLabel.Visible = true;
+                var Course = new Course(courseNameBox.Text, instructorNameBox.Text, int.Parse(courseLevelBox.Text), int.Parse(creditsBox.Text), courseDescriptionBox.Text);
+                Program.tmEngine.CourseDictionary.Add(ID, Course);
+
+                ID++; //Increments every time a new course is Created
+
+                foreach (var course in Program.tmEngine.CourseDictionary) 
+                {
+                    courseManager.Items.Add(course.Value.Name);
+                }
+            }
         }
 
         private void deleteCourseButton_Click(object sender, EventArgs e) //Deletes a course
-        {
-
-        }
-
-        private void courseAcceptButton_Click(object sender, EventArgs e) //Checks if all boxes are filled and creates the course
         {
 
         }
