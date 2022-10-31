@@ -32,6 +32,8 @@
             this.createCourseButton = new System.Windows.Forms.Button();
             this.deleteCourseButton = new System.Windows.Forms.Button();
             this.courseCreatorBox = new System.Windows.Forms.GroupBox();
+            this.deleteModuleButton = new System.Windows.Forms.Button();
+            this.createModuleButton = new System.Windows.Forms.Button();
             this.creditsBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.courseDescriptionBox = new System.Windows.Forms.TextBox();
@@ -41,9 +43,9 @@
             this.courseNameBox = new System.Windows.Forms.TextBox();
             this.courseNameLabel = new System.Windows.Forms.Label();
             this.instructorLabel = new System.Windows.Forms.Label();
-            this.instructorNameBox = new System.Windows.Forms.TextBox();
             this.courseListBox = new System.Windows.Forms.GroupBox();
             this.courseManager = new System.Windows.Forms.CheckedListBox();
+            this.instructorBox = new System.Windows.Forms.ComboBox();
             this.courseCreatorBox.SuspendLayout();
             this.courseListBox.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +63,7 @@
             // 
             this.createCourseButton.Location = new System.Drawing.Point(6, 26);
             this.createCourseButton.Name = "createCourseButton";
-            this.createCourseButton.Size = new System.Drawing.Size(183, 98);
+            this.createCourseButton.Size = new System.Drawing.Size(183, 48);
             this.createCourseButton.TabIndex = 1;
             this.createCourseButton.Text = "Create Course";
             this.createCourseButton.UseVisualStyleBackColor = true;
@@ -71,7 +73,7 @@
             // 
             this.deleteCourseButton.Location = new System.Drawing.Point(195, 26);
             this.deleteCourseButton.Name = "deleteCourseButton";
-            this.deleteCourseButton.Size = new System.Drawing.Size(183, 98);
+            this.deleteCourseButton.Size = new System.Drawing.Size(183, 48);
             this.deleteCourseButton.TabIndex = 2;
             this.deleteCourseButton.Text = "Delete Course";
             this.deleteCourseButton.UseVisualStyleBackColor = true;
@@ -79,6 +81,9 @@
             // 
             // courseCreatorBox
             // 
+            this.courseCreatorBox.Controls.Add(this.instructorBox);
+            this.courseCreatorBox.Controls.Add(this.deleteModuleButton);
+            this.courseCreatorBox.Controls.Add(this.createModuleButton);
             this.courseCreatorBox.Controls.Add(this.creditsBox);
             this.courseCreatorBox.Controls.Add(this.label2);
             this.courseCreatorBox.Controls.Add(this.courseDescriptionBox);
@@ -88,7 +93,6 @@
             this.courseCreatorBox.Controls.Add(this.courseNameBox);
             this.courseCreatorBox.Controls.Add(this.courseNameLabel);
             this.courseCreatorBox.Controls.Add(this.instructorLabel);
-            this.courseCreatorBox.Controls.Add(this.instructorNameBox);
             this.courseCreatorBox.Controls.Add(this.createCourseButton);
             this.courseCreatorBox.Controls.Add(this.deleteCourseButton);
             this.courseCreatorBox.Location = new System.Drawing.Point(8, 57);
@@ -97,6 +101,26 @@
             this.courseCreatorBox.TabIndex = 3;
             this.courseCreatorBox.TabStop = false;
             this.courseCreatorBox.Text = "Course Creator";
+            // 
+            // deleteModuleButton
+            // 
+            this.deleteModuleButton.Location = new System.Drawing.Point(195, 80);
+            this.deleteModuleButton.Name = "deleteModuleButton";
+            this.deleteModuleButton.Size = new System.Drawing.Size(183, 48);
+            this.deleteModuleButton.TabIndex = 15;
+            this.deleteModuleButton.Text = "Delete Module";
+            this.deleteModuleButton.UseVisualStyleBackColor = true;
+            this.deleteModuleButton.Click += new System.EventHandler(this.deleteModuleButton_Click);
+            // 
+            // createModuleButton
+            // 
+            this.createModuleButton.Location = new System.Drawing.Point(6, 80);
+            this.createModuleButton.Name = "createModuleButton";
+            this.createModuleButton.Size = new System.Drawing.Size(183, 48);
+            this.createModuleButton.TabIndex = 14;
+            this.createModuleButton.Text = "Create Module";
+            this.createModuleButton.UseVisualStyleBackColor = true;
+            this.createModuleButton.Click += new System.EventHandler(this.createModuleButton_Click);
             // 
             // creditsBox
             // 
@@ -178,13 +202,6 @@
             this.instructorLabel.TabIndex = 4;
             this.instructorLabel.Text = "Instructor Name";
             // 
-            // instructorNameBox
-            // 
-            this.instructorNameBox.Location = new System.Drawing.Point(6, 179);
-            this.instructorNameBox.Name = "instructorNameBox";
-            this.instructorNameBox.Size = new System.Drawing.Size(360, 27);
-            this.instructorNameBox.TabIndex = 3;
-            // 
             // courseListBox
             // 
             this.courseListBox.Controls.Add(this.courseManager);
@@ -202,6 +219,14 @@
             this.courseManager.Name = "courseManager";
             this.courseManager.Size = new System.Drawing.Size(434, 488);
             this.courseManager.TabIndex = 0;
+            // 
+            // instructorBox
+            // 
+            this.instructorBox.FormattingEnabled = true;
+            this.instructorBox.Location = new System.Drawing.Point(4, 179);
+            this.instructorBox.Name = "instructorBox";
+            this.instructorBox.Size = new System.Drawing.Size(362, 28);
+            this.instructorBox.TabIndex = 16;
             // 
             // AdminForm
             // 
@@ -234,12 +259,14 @@
         private TextBox courseNameBox;
         private Label courseNameLabel;
         private Label instructorLabel;
-        private TextBox instructorNameBox;
         private GroupBox courseListBox;
         private TextBox courseDescriptionBox;
         private Label courseDescriptionLabel;
         private TextBox creditsBox;
         private Label label2;
         private CheckedListBox courseManager;
+        private Button deleteModuleButton;
+        private Button createModuleButton;
+        private ComboBox instructorBox;
     }
 }

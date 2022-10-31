@@ -9,10 +9,14 @@ namespace TmLms.Users
     internal class Instructor
     {
         public string InstructorName { get; set; }
+        public int ID { get; set; }
 
-        public void CreateModule() 
+        public Instructor(string Name) 
         {
+            this.InstructorName = Name;
 
+            var Random = new Random();
+            this.ID = Random.Next(0, 9999999);
         }
     }
 }
