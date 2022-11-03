@@ -6,21 +6,17 @@ using System.Threading.Tasks;
 
 namespace TmLms.Users
 {
-    internal class Administrator
+    public class Administrator
     {
-        public void CreateCourse()
+        public string Name { get; set; }
+        public int ID { get; set; }
+
+        public Administrator(string name) 
         {
+            this.Name = name;
 
-        }
-
-        public void CreateModule()
-        {
-
-        }
-
-        public void DeleteCourse()
-        { 
-        
+            var random = new Random();
+            ID = random.Next(0, 100);
         }
     }
 }

@@ -13,17 +13,24 @@ namespace TmLms.UserForms
             creditsBox.Text = 120.ToString();
 
             //Dummy Data for instructors
-            var Instructor1 = new Instructor("Mr Anderson");
-            var Instructor2 = new Instructor("Mr Malkovich");
-            var Instructor3 = new Instructor("Mr Folabi");
+            Program.tmEngine.LoadDummyData();
 
-            var Item1 = Instructor1.ID + " - " + Instructor1.InstructorName;
-            var Item2 = Instructor2.ID + " - " + Instructor2.InstructorName;
-            var Item3 = Instructor3.ID + " - " + Instructor3.InstructorName;
-
-            instructorBox.Items.Add(Item1);
-            instructorBox.Items.Add(Item2);
-            instructorBox.Items.Add(Item3);
+            foreach (var instructor in Program.tmEngine.Instructors) 
+            {
+                var item = instructor.Value.ID + " - " + instructor.Value.InstructorName;
+                instructorBox.Items.Add(item);
+                instructorBox1.Items.Add(item);
+            }
+            foreach (var admin in Program.tmEngine.Admins) 
+            {
+                var item = admin.Value.ID + " - " + admin.Value.Name;
+                adminBox.Items.Add(item);
+            }
+            foreach (var student in Program.tmEngine.Students) 
+            {
+                var item = student.Value.Id + " - " + student.Value.StudentName;
+                studentListBox.Items.Add(item);
+            }
         }
 
         private void createCourseButton_Click(object sender, EventArgs e) //Opens the Course Creator
@@ -66,6 +73,37 @@ namespace TmLms.UserForms
             }
         }
 
+        private void viewButton_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                var item = courseManager.SelectedItem.ToString().Split(" ");
+
+                if (Program.tmEngine.CourseDictionary.ContainsKey(int.Parse(item[0])))
+                {
+                    Program.tmEngine.CourseDictionary.TryGetValue(int.Parse(item[0]), out var Course);
+                    string output = "Course Name: " + Course.Name + "\r\n" +
+                                    "Course Instructor: " + Course.Administrator + "\r\n" +
+                                    "Course Level: " + Course.Level + "\r\n" +
+                                    "Course Credits: " + Course.Credits + "\r\n" +
+                                    "Course Description: " + Course.Description;
+
+                    courseDisplayBox.Text = output;
+                }
+            }
+            catch (Exception ex) 
+            {
+                string ErrorMsg = ex.ToString() + "\r\n The course list is empty";
+                MessageBox.Show(ErrorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void createModuleButton_Click(object sender, EventArgs e)
         {
 
@@ -74,23 +112,6 @@ namespace TmLms.UserForms
         private void deleteModuleButton_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void viewButton_Click(object sender, EventArgs e)
-        {
-            var item = courseManager.SelectedItem.ToString().Split(" ");
-
-            if (Program.tmEngine.CourseDictionary.ContainsKey(int.Parse(item[0])))
-            {
-                Program.tmEngine.CourseDictionary.TryGetValue(int.Parse(item[0]), out var Course);
-                string output = "Course Name: " + Course.Name + "\r\n" +
-                                "Course Instructor: " + Course.Administrator + "\r\n" +
-                                "Course Level: " + Course.Level + "\r\n" +
-                                "Course Credits: " + Course.Credits + "\r\n" +
-                                "Course Description: " + Course.Description;
-
-                courseDisplayBox.Text = output;
-            }
         }
     }
 }

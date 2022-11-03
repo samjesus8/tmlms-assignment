@@ -6,9 +6,17 @@ using System.Threading.Tasks;
 
 namespace TmLms.Users
 {
-    internal class Student
+    public class Student
     {
         public string StudentName { get; set; }
         public int Id { get; set; }
+
+        public Student(string name) 
+        {
+            StudentName = name;
+
+            var Random = new Random();
+            Id = Random.Next(0, 10000000);
+        }
     }
 }

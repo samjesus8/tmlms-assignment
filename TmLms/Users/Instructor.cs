@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TmLms.Users
 {
-    internal class Instructor
+    public class Instructor
     {
         public string InstructorName { get; set; }
         public int ID { get; set; }
