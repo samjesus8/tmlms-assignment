@@ -45,9 +45,9 @@
             this.courseNameLabel = new System.Windows.Forms.Label();
             this.instructorLabel = new System.Windows.Forms.Label();
             this.courseListBox = new System.Windows.Forms.GroupBox();
-            this.courseManager = new System.Windows.Forms.CheckedListBox();
-            this.courseDisplayBox = new System.Windows.Forms.TextBox();
             this.viewButton = new System.Windows.Forms.Button();
+            this.courseDisplayBox = new System.Windows.Forms.TextBox();
+            this.courseManager = new System.Windows.Forms.CheckedListBox();
             this.courseCreatorBox.SuspendLayout();
             this.courseListBox.SuspendLayout();
             this.SuspendLayout();
@@ -136,6 +136,7 @@
             // 
             this.creditsBox.Location = new System.Drawing.Point(176, 310);
             this.creditsBox.Name = "creditsBox";
+            this.creditsBox.ReadOnly = true;
             this.creditsBox.Size = new System.Drawing.Size(125, 27);
             this.creditsBox.TabIndex = 13;
             // 
@@ -224,13 +225,15 @@
             this.courseListBox.TabStop = false;
             this.courseListBox.Text = "List of Courses";
             // 
-            // courseManager
+            // viewButton
             // 
-            this.courseManager.FormattingEnabled = true;
-            this.courseManager.Location = new System.Drawing.Point(6, 26);
-            this.courseManager.Name = "courseManager";
-            this.courseManager.Size = new System.Drawing.Size(434, 246);
-            this.courseManager.TabIndex = 0;
+            this.viewButton.Location = new System.Drawing.Point(6, 275);
+            this.viewButton.Name = "viewButton";
+            this.viewButton.Size = new System.Drawing.Size(94, 29);
+            this.viewButton.TabIndex = 2;
+            this.viewButton.Text = "View";
+            this.viewButton.UseVisualStyleBackColor = true;
+            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
             // 
             // courseDisplayBox
             // 
@@ -241,15 +244,13 @@
             this.courseDisplayBox.Size = new System.Drawing.Size(434, 215);
             this.courseDisplayBox.TabIndex = 1;
             // 
-            // viewButton
+            // courseManager
             // 
-            this.viewButton.Location = new System.Drawing.Point(6, 275);
-            this.viewButton.Name = "viewButton";
-            this.viewButton.Size = new System.Drawing.Size(94, 29);
-            this.viewButton.TabIndex = 2;
-            this.viewButton.Text = "View";
-            this.viewButton.UseVisualStyleBackColor = true;
-            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
+            this.courseManager.FormattingEnabled = true;
+            this.courseManager.Location = new System.Drawing.Point(6, 26);
+            this.courseManager.Name = "courseManager";
+            this.courseManager.Size = new System.Drawing.Size(434, 246);
+            this.courseManager.TabIndex = 0;
             // 
             // AdminForm
             // 

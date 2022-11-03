@@ -5,10 +5,12 @@ namespace TmLms.UserForms
 {
     public partial class AdminForm : Form
     {
-        static int ID = 0;
+        static int ID = 0; //This will increment by 1 each time a Course is created
         public AdminForm()
         {
             InitializeComponent();
+
+            creditsBox.Text = 120.ToString();
 
             //Dummy Data for instructors
             var Instructor1 = new Instructor("Mr Anderson");
@@ -32,7 +34,7 @@ namespace TmLms.UserForms
             }
             else 
             {
-                var Course = new Course(courseNameBox.Text, instructorBox.Text, int.Parse(courseLevelBox.Text), int.Parse(creditsBox.Text), courseDescriptionBox.Text);
+                var Course = new Course(courseNameBox.Text, instructorBox.Text, int.Parse(courseLevelBox.Text), int.Parse(120.ToString()), courseDescriptionBox.Text);
                 Program.tmEngine.CourseDictionary.Add(ID, Course); //Adding course to Dictionary
 
                 ID++; //Increments every time a new course is Created
