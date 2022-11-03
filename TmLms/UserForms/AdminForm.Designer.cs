@@ -50,30 +50,32 @@
             this.adminTabInterface = new System.Windows.Forms.TabControl();
             this.courseTab = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.outputBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.moduleNameBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.courseSelectorBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.studentListBox = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.instructorBox1 = new System.Windows.Forms.ComboBox();
             this.adminBox = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.creditsBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.moduleDescriptionBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.createModuleButton = new System.Windows.Forms.Button();
             this.deleteModuleButton = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.outputBox1 = new System.Windows.Forms.TextBox();
             this.courseCreatorBox.SuspendLayout();
             this.courseListBox.SuspendLayout();
             this.adminTabInterface.SuspendLayout();
             this.courseTab.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -298,17 +300,38 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Module";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.outputBox1);
+            this.groupBox2.Location = new System.Drawing.Point(480, 6);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(524, 704);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Output";
+            // 
+            // outputBox1
+            // 
+            this.outputBox1.Location = new System.Drawing.Point(6, 26);
+            this.outputBox1.Multiline = true;
+            this.outputBox1.Name = "outputBox1";
+            this.outputBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.outputBox1.Size = new System.Drawing.Size(512, 420);
+            this.outputBox1.TabIndex = 0;
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.moduleNameBox);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.courseSelectorBox);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.studentListBox);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.instructorBox1);
             this.groupBox1.Controls.Add(this.adminBox);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.creditsBox1);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.moduleDescriptionBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
@@ -320,6 +343,22 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Module Creator";
+            // 
+            // moduleNameBox
+            // 
+            this.moduleNameBox.Location = new System.Drawing.Point(8, 361);
+            this.moduleNameBox.Name = "moduleNameBox";
+            this.moduleNameBox.Size = new System.Drawing.Size(244, 27);
+            this.moduleNameBox.TabIndex = 23;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(9, 338);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(104, 20);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Module Name";
             // 
             // courseSelectorBox
             // 
@@ -371,39 +410,39 @@
             this.adminBox.Size = new System.Drawing.Size(424, 28);
             this.adminBox.TabIndex = 16;
             // 
-            // textBox1
+            // creditsBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 361);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 13;
+            this.creditsBox1.Location = new System.Drawing.Point(305, 361);
+            this.creditsBox1.Name = "creditsBox1";
+            this.creditsBox1.Size = new System.Drawing.Size(125, 27);
+            this.creditsBox1.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 338);
+            this.label3.Location = new System.Drawing.Point(305, 338);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 20);
             this.label3.TabIndex = 12;
             this.label3.Text = "Credits";
             // 
-            // textBox2
+            // moduleDescriptionBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(8, 426);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(422, 80);
-            this.textBox2.TabIndex = 10;
+            this.moduleDescriptionBox.Location = new System.Drawing.Point(8, 426);
+            this.moduleDescriptionBox.Multiline = true;
+            this.moduleDescriptionBox.Name = "moduleDescriptionBox";
+            this.moduleDescriptionBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.moduleDescriptionBox.Size = new System.Drawing.Size(422, 80);
+            this.moduleDescriptionBox.TabIndex = 10;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(8, 403);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(134, 20);
+            this.label4.Size = new System.Drawing.Size(140, 20);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Course Description";
+            this.label4.Text = "Module Description";
             // 
             // label6
             // 
@@ -443,24 +482,6 @@
             this.deleteModuleButton.UseVisualStyleBackColor = true;
             this.deleteModuleButton.Click += new System.EventHandler(this.deleteModuleButton_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.outputBox1);
-            this.groupBox2.Location = new System.Drawing.Point(480, 6);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(524, 704);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Output";
-            // 
-            // outputBox1
-            // 
-            this.outputBox1.Location = new System.Drawing.Point(6, 26);
-            this.outputBox1.Multiline = true;
-            this.outputBox1.Name = "outputBox1";
-            this.outputBox1.Size = new System.Drawing.Size(512, 296);
-            this.outputBox1.TabIndex = 0;
-            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -480,10 +501,10 @@
             this.adminTabInterface.ResumeLayout(false);
             this.courseTab.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,9 +536,9 @@
         private GroupBox groupBox1;
         private ComboBox instructorBox1;
         private ComboBox adminBox;
-        private TextBox textBox1;
+        private TextBox creditsBox1;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox moduleDescriptionBox;
         private Label label4;
         private Label label6;
         private Label label7;
@@ -530,5 +551,7 @@
         private Label label5;
         private GroupBox groupBox2;
         private TextBox outputBox1;
+        private TextBox moduleNameBox;
+        private Label label10;
     }
 }

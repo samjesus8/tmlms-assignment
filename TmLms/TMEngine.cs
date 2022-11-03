@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TmLms.TM;
 using TmLms.Users;
 
 namespace TmLms
@@ -73,6 +74,11 @@ namespace TmLms
             Students.Add(2, Student2);
             Students.Add(3, Student3);
             Students.Add(4, Student4);
+
+            //Courses
+
+            var Course1 = new Course("Computer Science BSc", (Instructor1.ID + " - " + Instructor1.InstructorName), 4, 120, "C# Coding Course");
+            CourseDictionary.Add(0, Course1);
         }
     }
 }

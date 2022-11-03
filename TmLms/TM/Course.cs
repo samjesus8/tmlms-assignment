@@ -8,7 +8,7 @@ namespace TmLms.TM
 {
     public class Course
     {
-        public string? Administrator { get; set; }
+        public string? Instructor { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
         public int Level { get; set; }
@@ -29,11 +29,11 @@ namespace TmLms.TM
 
         }
 
-        public Course(string CourseName, string AdminName, int CourseLevel, int Credits, string Description) 
+        public Course(string CourseName, string InstructorName, int CourseLevel, int Credits, string Description) 
         {
             this.Name = CourseName;
             this.Description = Description;
-            this.Administrator = AdminName;
+            this.Instructor = InstructorName;
             this.Level = CourseLevel;
             this.Credits = Credits;
         }

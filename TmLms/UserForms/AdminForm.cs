@@ -5,16 +5,23 @@ namespace TmLms.UserForms
 {
     public partial class AdminForm : Form
     {
-        static int ID = 0; //This will increment by 1 each time a Course is created
+        static int CourseID = 0; //This will increment by 1 each time a Course is created
+        static int ModuleID = 0; //Increment by 1 every time a module is created
+
         public AdminForm()
         {
             InitializeComponent();
+            Program.tmEngine.LoadDummyData();
+            LoadExistingCourses();
 
             creditsBox.Text = 120.ToString();
 
             //Dummy Data for instructors
-            Program.tmEngine.LoadDummyData();
-
+            foreach (var course in Program.tmEngine.CourseDictionary) 
+            {
+                var item = course.Key.ToString() + " - " + course.Value.Name;
+                courseSelectorBox.Items.Add(item);
+            }
             foreach (var instructor in Program.tmEngine.Instructors) 
             {
                 var item = instructor.Value.ID + " - " + instructor.Value.InstructorName;
@@ -42,15 +49,15 @@ namespace TmLms.UserForms
             else 
             {
                 var Course = new Course(courseNameBox.Text, instructorBox.Text, int.Parse(courseLevelBox.Text), int.Parse(120.ToString()), courseDescriptionBox.Text);
-                Program.tmEngine.CourseDictionary.Add(ID, Course); //Adding course to Dictionary
+                Program.tmEngine.CourseDictionary.Add(CourseID, Course); //Adding course to Dictionary
 
-                ID++; //Increments every time a new course is Created
+                CourseID++; //Increments every time a new course is Created
 
                 courseManager.Items.Clear(); //Clears box before displaying new courses
 
                 foreach (var course in Program.tmEngine.CourseDictionary) //Loops through dictionary and adds each course to the CourseManager display
                 {
-                    var item = course.Key.ToString() + " " + course.Value.Name;
+                    var item = course.Key.ToString() + " - " + course.Value.Name;
                     courseManager.Items.Add(item);
                 }
             }
@@ -67,7 +74,7 @@ namespace TmLms.UserForms
 
                 foreach (var course in Program.tmEngine.CourseDictionary) //Loops through dictionary and adds each course to the CourseManager display
                 {
-                    var item1 = course.Key.ToString() + " " + course.Value.Name;
+                    var item1 = course.Key.ToString() + " - " + course.Value.Name;
                     courseManager.Items.Add(item1);
                 }
             }
@@ -83,7 +90,7 @@ namespace TmLms.UserForms
                 {
                     Program.tmEngine.CourseDictionary.TryGetValue(int.Parse(item[0]), out var Course);
                     string output = "Course Name: " + Course.Name + "\r\n" +
-                                    "Course Instructor: " + Course.Administrator + "\r\n" +
+                                    "Course Instructor: " + Course.Instructor + "\r\n" +
                                     "Course Level: " + Course.Level + "\r\n" +
                                     "Course Credits: " + Course.Credits + "\r\n" +
                                     "Course Description: " + Course.Description;
@@ -106,12 +113,49 @@ namespace TmLms.UserForms
 
         private void createModuleButton_Click(object sender, EventArgs e)
         {
+            var CourseName = courseSelectorBox.Text.Split(" - "); // [0] = ID, [1] = Name
+            var AdminName = adminBox.Text.Split(" - ");
+            var InstructorName = instructorBox1.Text.Split(" - ");
+            var Students = studentListBox.CheckedItems;
+
+
+            var Admin1 = Program.tmEngine.Admins.TryGetValue(int.Parse(AdminName[0]), out var AdminResult1);
+
+            var GetCourse = Program.tmEngine.CourseDictionary.TryGetValue(int.Parse(CourseName[0]), out var CourseObj); //Gets module from dictionary
+            Administrator[] GetAdmins = { AdminResult1 };
+            Student[] GetStudents = {  };
+
+            var Module = new Module(CourseObj, moduleNameBox.Text, moduleDescriptionBox.Text,
+                                    int.Parse(creditsBox1.Text), GetAdmins, GetStudents);
+
+
+            string OutMsg = "Module Successfully Created \r\n\r\n" +
+                            "Course Details \r\n\r\n" +
+                            "Course: " + CourseName[1] + "\r\n" +
+                            "Module Name: " + moduleNameBox.Text + "\r\n" +
+                            "Module Code: " + Module.Code + "\r\n\r\n" +
+                            "Assigned Staff \r\n\r\n" +
+                            "Admins: " + AdminName[1] + "\r\n" +
+                            "Instructors: " + InstructorName[1] + "\r\n\r\n" +
+                            "Other Information \r\n\r\n" +
+                            "Credits: " + creditsBox1.Text;
+
+            outputBox1.Text = OutMsg;
 
         }
 
         private void deleteModuleButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoadExistingCourses() 
+        {
+            foreach (var courses in Program.tmEngine.CourseDictionary) 
+            {
+                var item = courses.Key.ToString() + " - " + courses.Value.Name;
+                courseManager.Items.Add(item);
+            }
         }
     }
 }

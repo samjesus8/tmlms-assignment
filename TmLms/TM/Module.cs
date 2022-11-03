@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TmLms.Users;
 
 namespace TmLms.TM
 {
@@ -22,6 +23,10 @@ namespace TmLms.TM
             SIX = 6
         }
 
+        public Course CourseName { get; set; }
+        public List<Administrator> Admins { get; set; }
+        public SortedSet<Student> Students { get; set; } //List to store members in a module
+
         public string Code { get; set; } //Module ID number
         public string Name { get; set; } //Module name
         public string Description { get; set; } //Module Description
@@ -29,14 +34,29 @@ namespace TmLms.TM
         public LevelEnum Level { get; set; }
         public CreditEnum Credits { get; set; }
 
-        public SortedSet<object> Members { get; set; } //List to store members in a module
-
-        public Module(string code, string moduleName, string moduleDescription, int credits, object AdminPerson)  //MAIN CONSTRUCTOR
+        public Module(Course course, string moduleName, string moduleDescription, int credits, Administrator[] AdminList, Student[] studentList)  //MAIN CONSTRUCTOR
         {
-            Code = code;
+            Admins = new List<Administrator>(); //Initialising all Lists
+            Students = new SortedSet<Student>();
+
+            CourseName = course; //Getting the course we want to add this module to
+
+            var Random = new Random();
+
+            Code = "MO" + Random.Next(0, 99999).ToString(); //Module ID randomly Generated
             Name = moduleName; //Parse in Module name from user input
             Description = moduleDescription; //Parse in Module Description from user input
-            Members = new SortedSet<object>();
+            CheckCredits(credits); //Checks the credits parsed in and assigns value to Credits
+
+            foreach (var admin in AdminList) //Storing List of Admins
+            {
+                Admins.Add(admin);
+            }
+
+            foreach(var student in studentList) //Storing List of Students
+            {
+                Students.Add(student);
+            }
         }
 
         public override int GetHashCode() //Method to check for same ID number (Eliminates Conflicts)
@@ -52,6 +72,22 @@ namespace TmLms.TM
             }
 
             return ((Module)obj).Code == this.Code;
+        }
+
+        private void CheckCredits(int credits) 
+        {
+            if (credits == 20) 
+            {
+                Credits = CreditEnum.TWENTY;
+            }
+            else if (credits == 40) 
+            {
+                Credits = CreditEnum.FORTY;
+            }
+            else if (credits == 60) 
+            {
+                Credits = CreditEnum.SIXTY;
+            }
         }
     }
 }
