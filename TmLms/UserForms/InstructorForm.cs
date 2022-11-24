@@ -16,5 +16,15 @@ namespace TmLms.UserForms
         {
             InitializeComponent();
         }
+
+        private void createModuleButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteModuleButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

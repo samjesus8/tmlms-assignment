@@ -11,12 +11,11 @@ namespace TmLms.Users
         public string InstructorName { get; set; }
         public int ID { get; set; }
 
-        public Instructor(string Name) 
+        public Instructor(string Name, int id) 
         {
             this.InstructorName = Name;
-
-            var Random = new Random();
-            this.ID = Random.Next(0, 9999999);
+            this.ID = id;
         }
+        public Instructor() { }
     }
 }

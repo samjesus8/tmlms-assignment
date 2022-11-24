@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TmLms.Users;
 
 namespace TmLms.TM
 {
     public class Course
     {
-        public string? Instructor { get; set; }
+        public Dictionary<int, Instructor> InstructorDir = new Dictionary<int, Instructor>(); // <ID, InstructorClass>
         public string? Name { get; set; }
         public string? Description { get; set; }
         public int Level { get; set; }
@@ -29,13 +25,17 @@ namespace TmLms.TM
 
         }
 
-        public Course(string CourseName, string InstructorName, int CourseLevel, int Credits, string Description) 
+        public Course(string CourseName, Instructor[] instructors, int CourseLevel, int Credits, string Description) 
         {
             this.Name = CourseName;
             this.Description = Description;
-            this.Instructor = InstructorName;
             this.Level = CourseLevel;
             this.Credits = Credits;
+
+            for (int i = 0; i < instructors.Length; i++) 
+            {
+                InstructorDir.Add(instructors[i].ID, instructors[i]);
+            }
         }
 
         public Course() 

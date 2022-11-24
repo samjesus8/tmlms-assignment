@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TmLms.TM;
-using TmLms.Users;
+﻿using TmLms.Users;
 
 namespace TmLms
 {
@@ -45,10 +39,10 @@ namespace TmLms
         public void LoadDummyData() 
         {
             //Instructors
-            var Instructor1 = new Instructor("Mr Anderson");
-            var Instructor2 = new Instructor("Mr Malkovich");
-            var Instructor3 = new Instructor("Mr Folabi");
-            var Instructor4 = new Instructor("Mr Uvuvwevwevwe onyetenvewve ugwemubwem ossas");
+            var Instructor1 = new Instructor("Mr Anderson", 1);
+            var Instructor2 = new Instructor("Mr Malkovich", 2);
+            var Instructor3 = new Instructor("Mr Folabi", 3);
+            var Instructor4 = new Instructor("Mr Uvuvwevwevwe onyetenvewve ugwemubwem ossas", 4);
 
             Instructors.Add(1, Instructor1);
             Instructors.Add(2, Instructor2);
@@ -56,19 +50,19 @@ namespace TmLms
             Instructors.Add(4, Instructor4);
 
             //Admins
-            var Admin1 = new Administrator("Mark");
-            var Admin2 = new Administrator("Paul");
-            var Admin3 = new Administrator("Rob");
+            var Admin1 = new Administrator("Mark", 1);
+            var Admin2 = new Administrator("Paul", 2);
+            var Admin3 = new Administrator("Rob", 3);
 
             Admins.Add(1, Admin1);
             Admins.Add(2, Admin2);
             Admins.Add(3, Admin3);
 
             //Students
-            var Student1 = new Student("Katie");
-            var Student2 = new Student("Bob");
-            var Student3 = new Student("Luke");
-            var Student4 = new Student("Peter");
+            var Student1 = new Student("Katie", 1);
+            var Student2 = new Student("Bob", 2);
+            var Student3 = new Student("Luke", 3);
+            var Student4 = new Student("Peter", 4);
 
             Students.Add(1, Student1);
             Students.Add(2, Student2);
@@ -77,8 +71,8 @@ namespace TmLms
 
             //Courses
 
-            var Course1 = new Course("Computer Science BSc", (Instructor1.ID + " - " + Instructor1.InstructorName), 4, 120, "C# Coding Course");
-            CourseDictionary.Add(0, Course1);
+            //var Course1 = new Course("Computer Science BSc", (Instructor1.ID + " - " + Instructor1.InstructorName), 4, 120, "C# Coding Course");
+            //CourseDictionary.Add(0, Course1);
         }
     }
 }

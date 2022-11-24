@@ -5,8 +5,8 @@ namespace TmLms.UserForms
 {
     public partial class AdminForm : Form
     {
-        static int CourseID = 0; //This will increment by 1 each time a Course is created
-        static int ModuleID = 0; //Increment by 1 every time a module is created
+        static int CourseID = Program.tmEngine.CourseDictionary.Count; //This will increment by 1 each time a Course is created
+        static int ModuleID = Program.tmEngine.ModuleDictionary.Count; //Increment by 1 every time a module is created
 
         public AdminForm()
         {
@@ -14,7 +14,7 @@ namespace TmLms.UserForms
             Program.tmEngine.LoadDummyData();
             LoadExistingCourses();
 
-            creditsBox.Text = 120.ToString();
+            creditsBox.Text = "120";
 
             //Dummy Data for instructors
             foreach (var course in Program.tmEngine.CourseDictionary) 
@@ -25,13 +25,13 @@ namespace TmLms.UserForms
             foreach (var instructor in Program.tmEngine.Instructors) 
             {
                 var item = instructor.Value.ID + " - " + instructor.Value.InstructorName;
-                instructorBox.Items.Add(item);
-                instructorBox1.Items.Add(item);
+                instructorListBox.Items.Add(item);
+                instructorListBox1.Items.Add(item);
             }
             foreach (var admin in Program.tmEngine.Admins) 
             {
                 var item = admin.Value.ID + " - " + admin.Value.Name;
-                adminBox.Items.Add(item);
+                adminListBox.Items.Add(item);
             }
             foreach (var student in Program.tmEngine.Students) 
             {
@@ -42,13 +42,25 @@ namespace TmLms.UserForms
 
         private void createCourseButton_Click(object sender, EventArgs e) //Opens the Course Creator
         {
-            if (((((courseNameBox.Text == "") || instructorBox.Text == "") || courseLevelBox.Text == "") || creditsBox.Text == "") || courseDescriptionBox.Text == "") //This checks if any of the boxes are empty
+            if ((((courseNameBox.Text == "") || instructorListBox.Text == "") || courseLevelBox.Text == "") || creditsBox.Text == "" || courseDescriptionBox.Text == "") //This checks if any of the boxes are empty
             {
                 MessageBox.Show("Please fill out the Course requirements", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else 
             {
-                var Course = new Course(courseNameBox.Text, instructorBox.Text, int.Parse(courseLevelBox.Text), int.Parse(120.ToString()), courseDescriptionBox.Text);
+                int i = 0;
+                Instructor[] instructorsToParse = new Instructor[instructorListBox.CheckedItems.Count];
+                foreach (object itemChecked in instructorListBox.CheckedItems) 
+                {
+                    Instructor castedItem = new Instructor();
+                    string[] temp = itemChecked.ToString().Split(" - ");
+                    castedItem.InstructorName = temp[1];
+                    castedItem.ID = int.Parse(temp[0]);
+                    instructorsToParse[i] = castedItem;
+                    i++;
+                }
+
+                var Course = new Course(courseNameBox.Text, instructorsToParse, int.Parse(courseLevelBox.Text), int.Parse(120.ToString()), courseDescriptionBox.Text);
                 Program.tmEngine.CourseDictionary.Add(CourseID, Course); //Adding course to Dictionary
 
                 CourseID++; //Increments every time a new course is Created
@@ -60,6 +72,8 @@ namespace TmLms.UserForms
                     var item = course.Key.ToString() + " - " + course.Value.Name;
                     courseManager.Items.Add(item);
                 }
+
+                MessageBox.Show("Success", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -89,8 +103,15 @@ namespace TmLms.UserForms
                 if (Program.tmEngine.CourseDictionary.ContainsKey(int.Parse(item[0])))
                 {
                     Program.tmEngine.CourseDictionary.TryGetValue(int.Parse(item[0]), out var Course);
+
+                    string instructorString = string.Empty;
+                    foreach (var instructor in Course.InstructorDir) 
+                    {
+                        instructorString = $"{instructor.Key}, {instructor.Value.InstructorName} \r\n";
+                    }
+
                     string output = "Course Name: " + Course.Name + "\r\n" +
-                                    "Course Instructor: " + Course.Instructor + "\r\n" +
+                                    "Course Instructors: " + "\r\n\r\n" + instructorString + "\r\n" +
                                     "Course Level: " + Course.Level + "\r\n" +
                                     "Course Credits: " + Course.Credits + "\r\n" +
                                     "Course Description: " + Course.Description;
@@ -114,8 +135,8 @@ namespace TmLms.UserForms
         private void createModuleButton_Click(object sender, EventArgs e)
         {
             var CourseName = courseSelectorBox.Text.Split(" - "); // [0] = ID, [1] = Name
-            var AdminName = adminBox.Text.Split(" - ");
-            var InstructorName = instructorBox1.Text.Split(" - ");
+            var AdminName = adminListBox.Text.Split(" - ");
+            var InstructorName = instructorListBox1.Text.Split(" - ");
             var Students = studentListBox.CheckedItems;
 
 
@@ -127,6 +148,8 @@ namespace TmLms.UserForms
 
             var Module = new Module(CourseObj, moduleNameBox.Text, moduleDescriptionBox.Text,
                                     int.Parse(creditsBox1.Text), GetAdmins, GetStudents);
+
+            Program.tmEngine.ModuleDictionary.Add(ModuleID, Module);
 
 
             string OutMsg = "Module Successfully Created \r\n\r\n" +
