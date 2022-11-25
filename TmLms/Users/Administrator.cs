@@ -10,5 +10,6 @@
             this.Name = name;
             this.ID = id;
         }
+        public Administrator() { }
     }
 }

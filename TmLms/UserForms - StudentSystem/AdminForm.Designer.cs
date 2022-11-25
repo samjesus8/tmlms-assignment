@@ -32,6 +32,7 @@
             this.createCourseButton = new System.Windows.Forms.Button();
             this.deleteCourseButton = new System.Windows.Forms.Button();
             this.courseCreatorBox = new System.Windows.Forms.GroupBox();
+            this.instructorListBox = new System.Windows.Forms.CheckedListBox();
             this.creditsBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.courseDescriptionBox = new System.Windows.Forms.TextBox();
@@ -52,13 +53,14 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.outputBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.adminListBox = new System.Windows.Forms.CheckedListBox();
+            this.instructorListBox1 = new System.Windows.Forms.CheckedListBox();
             this.moduleNameBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.courseSelectorBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.studentListBox = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.creditsBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.moduleDescriptionBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,9 +68,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.createModuleButton = new System.Windows.Forms.Button();
             this.deleteModuleButton = new System.Windows.Forms.Button();
-            this.instructorListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.adminListBox = new System.Windows.Forms.CheckedListBox();
-            this.instructorListBox = new System.Windows.Forms.CheckedListBox();
+            this.creditsBox1 = new System.Windows.Forms.ComboBox();
             this.courseCreatorBox.SuspendLayout();
             this.courseListBox.SuspendLayout();
             this.adminTabInterface.SuspendLayout();
@@ -89,7 +89,7 @@
             // 
             // createCourseButton
             // 
-            this.createCourseButton.Location = new System.Drawing.Point(5, 20);
+            this.createCourseButton.Location = new System.Drawing.Point(6, 20);
             this.createCourseButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createCourseButton.Name = "createCourseButton";
             this.createCourseButton.Size = new System.Drawing.Size(160, 82);
@@ -132,9 +132,17 @@
             this.courseCreatorBox.TabStop = false;
             this.courseCreatorBox.Text = "Course Creator";
             // 
+            // instructorListBox
+            // 
+            this.instructorListBox.FormattingEnabled = true;
+            this.instructorListBox.Location = new System.Drawing.Point(6, 135);
+            this.instructorListBox.Name = "instructorListBox";
+            this.instructorListBox.Size = new System.Drawing.Size(432, 94);
+            this.instructorListBox.TabIndex = 14;
+            // 
             // creditsBox
             // 
-            this.creditsBox.Location = new System.Drawing.Point(153, 304);
+            this.creditsBox.Location = new System.Drawing.Point(171, 304);
             this.creditsBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.creditsBox.Name = "creditsBox";
             this.creditsBox.ReadOnly = true;
@@ -144,7 +152,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(153, 286);
+            this.label2.Location = new System.Drawing.Point(171, 286);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 15);
             this.label2.TabIndex = 12;
@@ -157,7 +165,7 @@
             this.courseDescriptionBox.Multiline = true;
             this.courseDescriptionBox.Name = "courseDescriptionBox";
             this.courseDescriptionBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.courseDescriptionBox.Size = new System.Drawing.Size(416, 129);
+            this.courseDescriptionBox.Size = new System.Drawing.Size(434, 294);
             this.courseDescriptionBox.TabIndex = 10;
             // 
             // courseDescriptionLabel
@@ -196,7 +204,7 @@
             this.courseNameBox.Location = new System.Drawing.Point(4, 254);
             this.courseNameBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.courseNameBox.Name = "courseNameBox";
-            this.courseNameBox.Size = new System.Drawing.Size(316, 23);
+            this.courseNameBox.Size = new System.Drawing.Size(434, 23);
             this.courseNameBox.TabIndex = 6;
             // 
             // courseNameLabel
@@ -230,7 +238,7 @@
             this.courseListBox.Size = new System.Drawing.Size(424, 651);
             this.courseListBox.TabIndex = 4;
             this.courseListBox.TabStop = false;
-            this.courseListBox.Text = "List of Courses";
+            this.courseListBox.Text = "List of Courses (ID - Course Name)";
             // 
             // label9
             // 
@@ -259,7 +267,7 @@
             this.courseDisplayBox.Multiline = true;
             this.courseDisplayBox.Name = "courseDisplayBox";
             this.courseDisplayBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.courseDisplayBox.Size = new System.Drawing.Size(414, 222);
+            this.courseDisplayBox.Size = new System.Drawing.Size(414, 366);
             this.courseDisplayBox.TabIndex = 1;
             // 
             // courseManager
@@ -327,11 +335,12 @@
             this.outputBox1.Multiline = true;
             this.outputBox1.Name = "outputBox1";
             this.outputBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.outputBox1.Size = new System.Drawing.Size(448, 316);
+            this.outputBox1.Size = new System.Drawing.Size(448, 627);
             this.outputBox1.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.creditsBox1);
             this.groupBox1.Controls.Add(this.adminListBox);
             this.groupBox1.Controls.Add(this.instructorListBox1);
             this.groupBox1.Controls.Add(this.moduleNameBox);
@@ -340,7 +349,6 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.studentListBox);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.creditsBox1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.moduleDescriptionBox);
             this.groupBox1.Controls.Add(this.label4);
@@ -356,6 +364,22 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Module Creator";
+            // 
+            // adminListBox
+            // 
+            this.adminListBox.FormattingEnabled = true;
+            this.adminListBox.Location = new System.Drawing.Point(7, 171);
+            this.adminListBox.Name = "adminListBox";
+            this.adminListBox.Size = new System.Drawing.Size(370, 76);
+            this.adminListBox.TabIndex = 25;
+            // 
+            // instructorListBox1
+            // 
+            this.instructorListBox1.FormattingEnabled = true;
+            this.instructorListBox1.Location = new System.Drawing.Point(7, 271);
+            this.instructorListBox1.Name = "instructorListBox1";
+            this.instructorListBox1.Size = new System.Drawing.Size(369, 94);
+            this.instructorListBox1.TabIndex = 24;
             // 
             // moduleNameBox
             // 
@@ -409,14 +433,6 @@
             this.label5.Size = new System.Drawing.Size(53, 15);
             this.label5.TabIndex = 18;
             this.label5.Text = "Students";
-            // 
-            // creditsBox1
-            // 
-            this.creditsBox1.Location = new System.Drawing.Point(266, 394);
-            this.creditsBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.creditsBox1.Name = "creditsBox1";
-            this.creditsBox1.Size = new System.Drawing.Size(110, 23);
-            this.creditsBox1.TabIndex = 13;
             // 
             // label3
             // 
@@ -486,29 +502,17 @@
             this.deleteModuleButton.UseVisualStyleBackColor = true;
             this.deleteModuleButton.Click += new System.EventHandler(this.deleteModuleButton_Click);
             // 
-            // instructorListBox1
+            // creditsBox1
             // 
-            this.instructorListBox1.FormattingEnabled = true;
-            this.instructorListBox1.Location = new System.Drawing.Point(7, 271);
-            this.instructorListBox1.Name = "instructorListBox1";
-            this.instructorListBox1.Size = new System.Drawing.Size(369, 94);
-            this.instructorListBox1.TabIndex = 24;
-            // 
-            // adminListBox
-            // 
-            this.adminListBox.FormattingEnabled = true;
-            this.adminListBox.Location = new System.Drawing.Point(7, 171);
-            this.adminListBox.Name = "adminListBox";
-            this.adminListBox.Size = new System.Drawing.Size(370, 76);
-            this.adminListBox.TabIndex = 25;
-            // 
-            // instructorListBox
-            // 
-            this.instructorListBox.FormattingEnabled = true;
-            this.instructorListBox.Location = new System.Drawing.Point(6, 135);
-            this.instructorListBox.Name = "instructorListBox";
-            this.instructorListBox.Size = new System.Drawing.Size(414, 94);
-            this.instructorListBox.TabIndex = 14;
+            this.creditsBox1.FormattingEnabled = true;
+            this.creditsBox1.Items.AddRange(new object[] {
+            "20",
+            "40",
+            "60"});
+            this.creditsBox1.Location = new System.Drawing.Point(266, 395);
+            this.creditsBox1.Name = "creditsBox1";
+            this.creditsBox1.Size = new System.Drawing.Size(110, 23);
+            this.creditsBox1.TabIndex = 26;
             // 
             // AdminForm
             // 
@@ -560,7 +564,6 @@
         private TabPage courseTab;
         private TabPage tabPage2;
         private GroupBox groupBox1;
-        private TextBox creditsBox1;
         private Label label3;
         private TextBox moduleDescriptionBox;
         private Label label4;
@@ -580,5 +583,6 @@
         private CheckedListBox adminListBox;
         private CheckedListBox instructorListBox1;
         private CheckedListBox instructorListBox;
+        private ComboBox creditsBox1;
     }
 }

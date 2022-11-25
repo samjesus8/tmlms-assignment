@@ -75,6 +75,9 @@ namespace TmLms
             Instructor[] instructorArray = { Instructor1, Instructor2, Instructor3 };
             var Course1 = new Course("Computer Science BSc", instructorArray, 4, 120, "C# Coding Course");
             CourseDictionary.Add(0, Course1);
+
+            var Course2 = new Course("Accounting and Finance BSc", instructorArray, 5, 120, "Money and shit");
+            CourseDictionary.Add(1, Course2);
         }
     }
 }

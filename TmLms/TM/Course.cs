@@ -10,11 +10,6 @@ namespace TmLms.TM
         public int Level { get; set; }
         public int Credits { get; set; }
 
-        private int Level4Slot = 20;
-        private int Level5Slot = 40;
-        private int Level6Slot = 100;
-
-
         public bool AddModule(Module moduleToAdd, bool isCore)
         {
             return false;

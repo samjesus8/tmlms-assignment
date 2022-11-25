@@ -1,6 +1,6 @@
 ﻿namespace TmLms
 {
-    partial class Form1
+    partial class StudentSystemMenu
     {
         /// <summary>
         ///  Required designer variable.

@@ -3,12 +3,14 @@
     public class Student
     {
         public string StudentName { get; set; }
-        public int Id { get; set; }
+        public int ID { get; set; }
 
         public Student(string name, int id) 
         {
             this.StudentName = name;
-            this.Id = id;
+            this.ID = id;
         }
+
+        public Student() { }
     }
 }

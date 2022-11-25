@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reflection;
 using TmLms.Users;
 
 namespace TmLms.TM
@@ -24,8 +20,9 @@ namespace TmLms.TM
         }
 
         public Course CourseName { get; set; }
-        public List<Administrator> Admins { get; set; }
-        public SortedSet<Student> Students { get; set; } //List to store members in a module
+        public Dictionary<int, Administrator> Admins = new Dictionary<int, Administrator>();
+        public Dictionary<int, Student> Students = new Dictionary<int, Student>();
+        public Dictionary<int, Instructor> Instructors = new Dictionary<int, Instructor>();
 
         public string Code { get; set; } //Module ID number
         public string Name { get; set; } //Module name
@@ -34,11 +31,8 @@ namespace TmLms.TM
         public LevelEnum Level { get; set; }
         public CreditEnum Credits { get; set; }
 
-        public Module(Course course, string moduleName, string moduleDescription, int credits, Administrator[] AdminList, Student[] studentList)  //MAIN CONSTRUCTOR
+        public Module(Course course, string moduleName, string moduleDescription, int credits, Administrator[] adminList, Student[] studentList, Instructor[] instructorList)  //MAIN CONSTRUCTOR
         {
-            Admins = new List<Administrator>(); //Initialising all Lists
-            Students = new SortedSet<Student>();
-
             CourseName = course; //Getting the course we want to add this module to
 
             var Random = new Random();
@@ -48,14 +42,19 @@ namespace TmLms.TM
             Description = moduleDescription; //Parse in Module Description from user input
             CheckCredits(credits); //Checks the credits parsed in and assigns value to Credits
 
-            foreach (var admin in AdminList) //Storing List of Admins
+            foreach (var admin in adminList) //Storing List of Admins
             {
-                Admins.Add(admin);
+                Admins.Add(admin.ID, admin);
+            }
+
+            foreach (var instructor in instructorList) //Storing List of Instructors
+            {
+                Instructors.Add(instructor.ID, instructor);
             }
 
             foreach(var student in studentList) //Storing List of Students
             {
-                Students.Add(student);
+                Students.Add(student.ID, student);
             }
         }
 

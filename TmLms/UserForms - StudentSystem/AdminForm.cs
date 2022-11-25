@@ -11,36 +11,9 @@ namespace TmLms.UserForms
         public AdminForm()
         {
             InitializeComponent();
-            Program.tmEngine.LoadDummyData();
-            LoadExistingCourses();
-
-            creditsBox.Text = "120";
-
-            //Dummy Data for instructors
-            foreach (var course in Program.tmEngine.CourseDictionary) 
-            {
-                var item = course.Key.ToString() + " - " + course.Value.Name;
-                courseSelectorBox.Items.Add(item);
-            }
-            foreach (var instructor in Program.tmEngine.Instructors) 
-            {
-                var item = instructor.Value.ID + " - " + instructor.Value.InstructorName;
-                instructorListBox.Items.Add(item);
-                instructorListBox1.Items.Add(item);
-            }
-            foreach (var admin in Program.tmEngine.Admins) 
-            {
-                var item = admin.Value.ID + " - " + admin.Value.Name;
-                adminListBox.Items.Add(item);
-            }
-            foreach (var student in Program.tmEngine.Students) 
-            {
-                var item = student.Value.Id + " - " + student.Value.StudentName;
-                studentListBox.Items.Add(item);
-            }
         }
 
-        private void createCourseButton_Click(object sender, EventArgs e) //Opens the Course Creator
+        private void createCourseButton_Click(object sender, EventArgs e)
         {
             if ((((courseNameBox.Text == "") || instructorListBox.Text == "") || courseLevelBox.Text == "") || creditsBox.Text == "" || courseDescriptionBox.Text == "") //This checks if any of the boxes are empty
             {
@@ -91,6 +64,8 @@ namespace TmLms.UserForms
                     var item1 = course.Key.ToString() + " - " + course.Value.Name;
                     courseManager.Items.Add(item1);
                 }
+
+                MessageBox.Show("Success", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -124,28 +99,87 @@ namespace TmLms.UserForms
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
+            Program.tmEngine.LoadDummyData();
+            LoadExistingCourses();
 
+            creditsBox.Text = "120";
+
+            //Dummy Data for instructors
+            foreach (var course in Program.tmEngine.CourseDictionary)
+            {
+                var item = course.Key.ToString() + " - " + course.Value.Name;
+                courseSelectorBox.Items.Add(item);
+            }
+            foreach (var instructor in Program.tmEngine.Instructors)
+            {
+                var item = instructor.Value.ID + " - " + instructor.Value.InstructorName;
+                instructorListBox.Items.Add(item);
+                instructorListBox1.Items.Add(item);
+            }
+            foreach (var admin in Program.tmEngine.Admins)
+            {
+                var item = admin.Value.ID + " - " + admin.Value.Name;
+                adminListBox.Items.Add(item);
+            }
+            foreach (var student in Program.tmEngine.Students)
+            {
+                var item = student.Value.ID + " - " + student.Value.StudentName;
+                studentListBox.Items.Add(item);
+            }
         }
 
         private void createModuleButton_Click(object sender, EventArgs e)
         {
+            int i = 0;
+            int j = 0; 
+            int k = 0;
+
             var CourseName = courseSelectorBox.Text.Split(" - "); // [0] = ID, [1] = Name
-            var AdminName = adminListBox.Text.Split(" - ");
-            var InstructorName = instructorListBox1.Text.Split(" - ");
-            var Students = studentListBox.CheckedItems;
+            var GetCourse = Program.tmEngine.CourseDictionary.TryGetValue(int.Parse(CourseName[0]), out var CourseObj); //Gets Course from dictionary
 
+            Administrator[] GetAdmins = new Administrator[adminListBox.CheckedItems.Count];
+            Instructor[] GetInstructors = new Instructor[instructorListBox1.CheckedItems.Count];
+            Student[] GetStudents = new Student[studentListBox.CheckedItems.Count];
 
-            var Admin1 = Program.tmEngine.Admins.TryGetValue(int.Parse(AdminName[0]), out var AdminResult1);
+            foreach (object itemChecked in adminListBox.CheckedItems)
+            {
+                Administrator castedItem = new Administrator();
+                string[] temp = itemChecked.ToString().Split(" - ");
+                castedItem.Name = temp[1];
+                castedItem.ID = int.Parse(temp[0]);
+                GetAdmins[i] = castedItem;
+                i++;
+            }
 
-            var GetCourse = Program.tmEngine.CourseDictionary.TryGetValue(int.Parse(CourseName[0]), out var CourseObj); //Gets module from dictionary
-            Administrator[] GetAdmins = { AdminResult1 };
-            Student[] GetStudents = {  };
+            foreach (object itemChecked in instructorListBox1.CheckedItems)
+            {
+                Instructor castedItem = new Instructor();
+                string[] temp = itemChecked.ToString().Split(" - ");
+                castedItem.InstructorName = temp[1];
+                castedItem.ID = int.Parse(temp[0]);
+                GetInstructors[j] = castedItem;
+                j++;
+            }
+
+            foreach (object itemChecked in studentListBox.CheckedItems)
+            {
+                Student castedItem = new Student();
+                string[] temp = itemChecked.ToString().Split(" - ");
+                castedItem.StudentName = temp[1];
+                castedItem.ID = int.Parse(temp[0]);
+                GetStudents[k] = castedItem;
+                k++;
+            }
 
             var Module = new Module(CourseObj, moduleNameBox.Text, moduleDescriptionBox.Text,
-                                    int.Parse(creditsBox1.Text), GetAdmins, GetStudents);
+                                    int.Parse(creditsBox1.Text), GetAdmins, GetStudents, GetInstructors);
 
             Program.tmEngine.ModuleDictionary.Add(ModuleID, Module);
+            ModuleID++;
 
+            string adminView = string.Join("\r\n", GetAdmins.Select(pair => string.Format("{0} - {1}", pair.ID, pair.Name)));
+            string instructorView = string.Join("\r\n", GetInstructors.Select(pair => string.Format("{0} - {1}", pair.ID, pair.InstructorName)));
+            string studentView = string.Join("\r\n", GetStudents.Select(pair => string.Format("{0} - {1}", pair.ID, pair.StudentName)));
 
             string OutMsg = "Module Successfully Created \r\n\r\n" +
                             "Course Details \r\n\r\n" +
@@ -153,10 +187,12 @@ namespace TmLms.UserForms
                             "Module Name: " + moduleNameBox.Text + "\r\n" +
                             "Module Code: " + Module.Code + "\r\n\r\n" +
                             "Assigned Staff \r\n\r\n" +
-                            "Admins: " + AdminName[1] + "\r\n" +
-                            "Instructors: " + InstructorName[1] + "\r\n\r\n" +
+                            "Admins: \r\n" + adminView + "\r\n\r\n" +
+                            "Instructors: \r\n" + instructorView + "\r\n\r\n" +
                             "Other Information \r\n\r\n" +
-                            "Credits: " + creditsBox1.Text;
+                            "Credits: " + creditsBox1.Text + "\r\n" +
+                            "Students Enrolled on this module: \r\n" +
+                            studentView;
 
             outputBox1.Text = OutMsg;
 
@@ -164,7 +200,7 @@ namespace TmLms.UserForms
 
         private void deleteModuleButton_Click(object sender, EventArgs e)
         {
-
+            //Need to implement
         }
 
         private void LoadExistingCourses() 

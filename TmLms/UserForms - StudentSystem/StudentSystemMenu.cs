@@ -2,9 +2,9 @@ using TmLms.UserForms;
 
 namespace TmLms
 {
-    public partial class Form1 : Form
+    public partial class StudentSystemMenu : Form
     {
-        public Form1()
+        public StudentSystemMenu()
         {
             InitializeComponent();
         }
