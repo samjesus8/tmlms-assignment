@@ -85,7 +85,7 @@
             this.Controls.Add(this.smsButton);
             this.Controls.Add(this.label1);
             this.Name = "MainMenu";
-            this.Text = "MainMenu";
+            this.Text = "Main Menu";
             this.ResumeLayout(false);
             this.PerformLayout();
 

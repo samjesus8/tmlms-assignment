@@ -1,4 +1,6 @@
-﻿namespace TmLms
+﻿using TmLms.QuizApplication;
+
+namespace TmLms
 {
     public partial class MainMenu : Form
     {
@@ -15,7 +17,8 @@
 
         private void quizButton_Click(object sender, EventArgs e)
         {
-
+            var Form = new QuizBuilderMenu();
+            Form.Show();
         }
     }
 }
