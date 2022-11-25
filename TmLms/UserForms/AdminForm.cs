@@ -103,15 +103,10 @@ namespace TmLms.UserForms
                 if (Program.tmEngine.CourseDictionary.ContainsKey(int.Parse(item[0])))
                 {
                     Program.tmEngine.CourseDictionary.TryGetValue(int.Parse(item[0]), out var Course);
+                    string instructorString = string.Join("\r\n", Course.InstructorDir.Select(pair => string.Format("{0} - {1}", pair.Key, pair.Value.InstructorName)));
 
-                    string instructorString = string.Empty;
-                    foreach (var instructor in Course.InstructorDir) 
-                    {
-                        instructorString = $"{instructor.Key}, {instructor.Value.InstructorName} \r\n";
-                    }
-
-                    string output = "Course Name: " + Course.Name + "\r\n" +
-                                    "Course Instructors: " + "\r\n\r\n" + instructorString + "\r\n" +
+                    string output = "Course Name: " + Course.Name + "\r\n\r\n" +
+                                    "Course Instructors: \r\n" + instructorString + "\r\n\r\n" +
                                     "Course Level: " + Course.Level + "\r\n" +
                                     "Course Credits: " + Course.Credits + "\r\n" +
                                     "Course Description: " + Course.Description;

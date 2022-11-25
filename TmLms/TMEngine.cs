@@ -1,4 +1,5 @@
-﻿using TmLms.Users;
+﻿using TmLms.TM;
+using TmLms.Users;
 
 namespace TmLms
 {
@@ -71,8 +72,9 @@ namespace TmLms
 
             //Courses
 
-            //var Course1 = new Course("Computer Science BSc", (Instructor1.ID + " - " + Instructor1.InstructorName), 4, 120, "C# Coding Course");
-            //CourseDictionary.Add(0, Course1);
+            Instructor[] instructorArray = { Instructor1, Instructor2, Instructor3 };
+            var Course1 = new Course("Computer Science BSc", instructorArray, 4, 120, "C# Coding Course");
+            CourseDictionary.Add(0, Course1);
         }
     }
 }
