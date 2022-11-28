@@ -5,6 +5,7 @@ namespace TmLms.TM
     public class Course
     {
         public Dictionary<int, Instructor> InstructorDir = new Dictionary<int, Instructor>(); // <ID, InstructorClass>
+        public Dictionary<string, Module> ModuleDir = new Dictionary<string, Module>();//<ModuleCode, ModuleClass>
         public string? Name { get; set; }
         public string? Description { get; set; }
         public int Level { get; set; }
@@ -29,7 +30,7 @@ namespace TmLms.TM
 
             for (int i = 0; i < instructors.Length; i++) 
             {
-                InstructorDir.Add(instructors[i].ID, instructors[i]);
+                InstructorDir.Add(instructors[i].ID, instructors[i]); //Adding Instructors to the Dictionary
             }
         }
 

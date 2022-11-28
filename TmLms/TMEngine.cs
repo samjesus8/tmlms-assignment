@@ -70,14 +70,29 @@ namespace TmLms
             Students.Add(3, Student3);
             Students.Add(4, Student4);
 
-            //Courses
+            //Courses & Modules
 
             Instructor[] instructorArray = { Instructor1, Instructor2, Instructor3 };
+
             var Course1 = new Course("Computer Science BSc", instructorArray, 4, 120, "C# Coding Course");
             CourseDictionary.Add(0, Course1);
 
+            Administrator[] Module1Admins = { Admin1, Admin2, Admin3 };
+            Student[] Module1Students = { Student2, Student4, Student1 };
+            Instructor[] Module1Instructors = { Instructor1, Instructor3 };
+
+            var Module1 = new Module(Course1, "Object Oriented Programming", "C# Coding and shit", 40, Module1Admins, Module1Students, Module1Instructors);
+            Course1.ModuleDir.Add("MO12934", Module1);
+
             var Course2 = new Course("Accounting and Finance BSc", instructorArray, 5, 120, "Money and shit");
             CourseDictionary.Add(1, Course2);
+
+            Administrator[] Module2Admins = { Admin1, Admin3 };
+            Student[] Module2Students = { Student4, Student1 };
+            Instructor[] Module2Instructors = { Instructor1, Instructor3 };
+
+            var Module2 = new Module(Course2, "VR", "Oculus Rift and shit", 20, Module2Admins, Module2Students, Module2Instructors);
+            Course2.ModuleDir.Add("MO12984", Module2);
         }
     }
 }

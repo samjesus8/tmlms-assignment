@@ -73,6 +73,8 @@ namespace TmLms.UserForms
         {
             try 
             {
+                moduleSelectorCourse.Items.Clear();
+
                 var item = courseManager.SelectedItem.ToString().Split(" ");
 
                 if (Program.tmEngine.CourseDictionary.ContainsKey(int.Parse(item[0])))
@@ -87,6 +89,16 @@ namespace TmLms.UserForms
                                     "Course Description: " + Course.Description;
 
                     courseDisplayBox.Text = output;
+
+                    //Loading in the modules
+                    string[] courseNameToGet = courseManager.SelectedItem.ToString().Split(" - "); // [0] - Course ID, [1] - Course Name
+                    var tempSearch = Program.tmEngine.CourseDictionary.TryGetValue(int.Parse(courseNameToGet[0]), out var searchedCourse);
+
+                    foreach (var module in searchedCourse.ModuleDir) 
+                    {
+                        string tempModule = module.Key + " - " + module.Value.Name;
+                        moduleSelectorCourse.Items.Add(tempModule);
+                    }
                 }
             }
             catch (Exception ex) 
@@ -94,7 +106,6 @@ namespace TmLms.UserForms
                 string ErrorMsg = ex.ToString() + "\r\n The course list is empty";
                 MessageBox.Show(ErrorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void AdminForm_Load(object sender, EventArgs e)
@@ -175,6 +186,7 @@ namespace TmLms.UserForms
                                     int.Parse(creditsBox1.Text), GetAdmins, GetStudents, GetInstructors);
 
             Program.tmEngine.ModuleDictionary.Add(ModuleID, Module);
+            CourseObj.ModuleDir.Add(Module.Code, Module);
             ModuleID++;
 
             string adminView = string.Join("\r\n", GetAdmins.Select(pair => string.Format("{0} - {1}", pair.ID, pair.Name)));
@@ -210,6 +222,41 @@ namespace TmLms.UserForms
                 var item = courses.Key.ToString() + " - " + courses.Value.Name;
                 courseManager.Items.Add(item);
             }
+        }
+
+        private void moduleSelectorCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] moduleName = moduleSelectorCourse.Text.Split(" - "); //[0] - Module Code, [1] - Module Name
+            string moduleDetails = "";
+
+            for (int i = 0; i < Program.tmEngine.CourseDictionary.Count; i++) 
+            {
+                var moduleList = Program.tmEngine.CourseDictionary[i].ModuleDir;
+
+                foreach (var module in moduleList) 
+                {
+                    if (module.Key == moduleName[0]) 
+                    {
+                        var searchedModule = moduleList.TryGetValue(moduleName[0], out var moduleOut);
+
+                        string adminView = string.Join("\r\n", moduleOut.Admins.Select(pair => string.Format("{0} - {1}", pair.Value.ID, pair.Value.Name)));
+                        string instructorView = string.Join("\r\n", moduleOut.Instructors.Select(pair => string.Format("{0} - {1}", pair.Value.ID, pair.Value.InstructorName)));
+                        string studentView = string.Join("\r\n", moduleOut.Students.Select(pair => string.Format("{0} - {1}", pair.Value.ID, pair.Value.StudentName)));
+
+                        moduleDetails = "Module Name: " + moduleOut.Name + "\r\n" +
+                                        "Module Code: " + moduleOut.Code + "\r\n\r\n" +
+                                        "Assigned Staff \r\n\r\n" +
+                                        "Admins: \r\n" + adminView + "\r\n\r\n" +
+                                        "Instructors: \r\n" + instructorView + "\r\n\r\n" +
+                                        "Other Information \r\n\r\n" +
+                                        "Credits: " + moduleOut.Credits + "\r\n" +
+                                        "Students Enrolled on this module: \r\n" +
+                                        studentView;
+                    }
+                }
+            }
+
+            moduleOutputBox.Text = moduleDetails;
         }
     }
 }
