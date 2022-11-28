@@ -17,12 +17,17 @@ namespace TmLms.UserForms
             InitializeComponent();
         }
 
-        private void createModuleButton_Click(object sender, EventArgs e)
+        private void createModuleButton_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void deleteModuleButton_Click(object sender, EventArgs e)
+        private void deleteModuleButton_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InstructorForm_Load(object sender, EventArgs e)
         {
 
         }

@@ -30,15 +30,15 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.creditsBox1 = new System.Windows.Forms.ComboBox();
+            this.adminListBox = new System.Windows.Forms.CheckedListBox();
+            this.instructorListBox1 = new System.Windows.Forms.CheckedListBox();
             this.moduleNameBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.courseSelectorBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.studentListBox = new System.Windows.Forms.CheckedListBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.instructorBox1 = new System.Windows.Forms.ComboBox();
-            this.adminBox = new System.Windows.Forms.ComboBox();
-            this.creditsBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.moduleDescriptionBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,15 +63,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.creditsBox1);
+            this.groupBox1.Controls.Add(this.adminListBox);
+            this.groupBox1.Controls.Add(this.instructorListBox1);
             this.groupBox1.Controls.Add(this.moduleNameBox);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.courseSelectorBox);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.studentListBox);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.instructorBox1);
-            this.groupBox1.Controls.Add(this.adminBox);
-            this.groupBox1.Controls.Add(this.creditsBox1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.moduleDescriptionBox);
             this.groupBox1.Controls.Add(this.label4);
@@ -79,18 +79,46 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.createModuleButton);
             this.groupBox1.Controls.Add(this.deleteModuleButton);
-            this.groupBox1.Location = new System.Drawing.Point(12, 32);
+            this.groupBox1.Location = new System.Drawing.Point(6, 20);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(400, 528);
+            this.groupBox1.Size = new System.Drawing.Size(400, 651);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Module Creator";
             // 
+            // creditsBox1
+            // 
+            this.creditsBox1.FormattingEnabled = true;
+            this.creditsBox1.Items.AddRange(new object[] {
+            "20",
+            "40",
+            "60"});
+            this.creditsBox1.Location = new System.Drawing.Point(266, 395);
+            this.creditsBox1.Name = "creditsBox1";
+            this.creditsBox1.Size = new System.Drawing.Size(110, 23);
+            this.creditsBox1.TabIndex = 26;
+            // 
+            // adminListBox
+            // 
+            this.adminListBox.FormattingEnabled = true;
+            this.adminListBox.Location = new System.Drawing.Point(7, 171);
+            this.adminListBox.Name = "adminListBox";
+            this.adminListBox.Size = new System.Drawing.Size(370, 76);
+            this.adminListBox.TabIndex = 25;
+            // 
+            // instructorListBox1
+            // 
+            this.instructorListBox1.FormattingEnabled = true;
+            this.instructorListBox1.Location = new System.Drawing.Point(7, 271);
+            this.instructorListBox1.Name = "instructorListBox1";
+            this.instructorListBox1.Size = new System.Drawing.Size(369, 94);
+            this.instructorListBox1.TabIndex = 24;
+            // 
             // moduleNameBox
             // 
-            this.moduleNameBox.Location = new System.Drawing.Point(7, 271);
+            this.moduleNameBox.Location = new System.Drawing.Point(6, 394);
             this.moduleNameBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.moduleNameBox.Name = "moduleNameBox";
             this.moduleNameBox.Size = new System.Drawing.Size(214, 23);
@@ -99,7 +127,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 253);
+            this.label10.Location = new System.Drawing.Point(7, 376);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 15);
             this.label10.TabIndex = 22;
@@ -126,7 +154,7 @@
             // studentListBox
             // 
             this.studentListBox.FormattingEnabled = true;
-            this.studentListBox.Location = new System.Drawing.Point(8, 398);
+            this.studentListBox.Location = new System.Drawing.Point(7, 521);
             this.studentListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.studentListBox.Name = "studentListBox";
             this.studentListBox.Size = new System.Drawing.Size(369, 112);
@@ -135,42 +163,16 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 380);
+            this.label5.Location = new System.Drawing.Point(4, 503);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 15);
             this.label5.TabIndex = 18;
             this.label5.Text = "Students";
             // 
-            // instructorBox1
-            // 
-            this.instructorBox1.FormattingEnabled = true;
-            this.instructorBox1.Location = new System.Drawing.Point(5, 220);
-            this.instructorBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.instructorBox1.Name = "instructorBox1";
-            this.instructorBox1.Size = new System.Drawing.Size(372, 23);
-            this.instructorBox1.TabIndex = 17;
-            // 
-            // adminBox
-            // 
-            this.adminBox.FormattingEnabled = true;
-            this.adminBox.Location = new System.Drawing.Point(5, 172);
-            this.adminBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.adminBox.Name = "adminBox";
-            this.adminBox.Size = new System.Drawing.Size(372, 23);
-            this.adminBox.TabIndex = 16;
-            // 
-            // creditsBox1
-            // 
-            this.creditsBox1.Location = new System.Drawing.Point(267, 271);
-            this.creditsBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.creditsBox1.Name = "creditsBox1";
-            this.creditsBox1.Size = new System.Drawing.Size(110, 23);
-            this.creditsBox1.TabIndex = 13;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(267, 253);
+            this.label3.Location = new System.Drawing.Point(266, 376);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 15);
             this.label3.TabIndex = 12;
@@ -178,7 +180,7 @@
             // 
             // moduleDescriptionBox
             // 
-            this.moduleDescriptionBox.Location = new System.Drawing.Point(7, 320);
+            this.moduleDescriptionBox.Location = new System.Drawing.Point(6, 443);
             this.moduleDescriptionBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.moduleDescriptionBox.Multiline = true;
             this.moduleDescriptionBox.Name = "moduleDescriptionBox";
@@ -189,7 +191,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 301);
+            this.label4.Location = new System.Drawing.Point(6, 424);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 15);
             this.label4.TabIndex = 9;
@@ -198,7 +200,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 202);
+            this.label6.Location = new System.Drawing.Point(6, 252);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 15);
             this.label6.TabIndex = 5;
@@ -222,7 +224,7 @@
             this.createModuleButton.TabIndex = 1;
             this.createModuleButton.Text = "Create Module";
             this.createModuleButton.UseVisualStyleBackColor = true;
-            this.createModuleButton.Click += new System.EventHandler(this.createModuleButton_Click);
+            this.createModuleButton.Click += new System.EventHandler(this.createModuleButton_Click_1);
             // 
             // deleteModuleButton
             // 
@@ -233,16 +235,16 @@
             this.deleteModuleButton.TabIndex = 2;
             this.deleteModuleButton.Text = "Delete Module";
             this.deleteModuleButton.UseVisualStyleBackColor = true;
-            this.deleteModuleButton.Click += new System.EventHandler(this.deleteModuleButton_Click);
+            this.deleteModuleButton.Click += new System.EventHandler(this.deleteModuleButton_Click_1);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.outputBox1);
-            this.groupBox2.Location = new System.Drawing.Point(418, 32);
+            this.groupBox2.Location = new System.Drawing.Point(412, 20);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(458, 528);
+            this.groupBox2.Size = new System.Drawing.Size(458, 651);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Output";
@@ -254,7 +256,7 @@
             this.outputBox1.Multiline = true;
             this.outputBox1.Name = "outputBox1";
             this.outputBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.outputBox1.Size = new System.Drawing.Size(448, 316);
+            this.outputBox1.Size = new System.Drawing.Size(448, 627);
             this.outputBox1.TabIndex = 0;
             // 
             // InstructorForm
@@ -262,12 +264,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(896, 570);
+            this.ClientSize = new System.Drawing.Size(880, 681);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Name = "InstructorForm";
             this.Text = "InstructorForm";
+            this.Load += new System.EventHandler(this.InstructorForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -281,15 +284,15 @@
 
         private Label label1;
         private GroupBox groupBox1;
+        private ComboBox creditsBox1;
+        private CheckedListBox adminListBox;
+        private CheckedListBox instructorListBox1;
         private TextBox moduleNameBox;
         private Label label10;
         private ComboBox courseSelectorBox;
         private Label label8;
         private CheckedListBox studentListBox;
         private Label label5;
-        private ComboBox instructorBox1;
-        private ComboBox adminBox;
-        private TextBox creditsBox1;
         private Label label3;
         private TextBox moduleDescriptionBox;
         private Label label4;
