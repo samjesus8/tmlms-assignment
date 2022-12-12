@@ -110,7 +110,6 @@ namespace TmLms.UserForms
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-            Program.tmEngine.LoadDummyData();
             LoadExistingCourses();
 
             creditsBox.Text = "120";

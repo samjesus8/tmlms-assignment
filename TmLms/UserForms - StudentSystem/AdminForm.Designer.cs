@@ -43,6 +43,9 @@
             this.courseNameLabel = new System.Windows.Forms.Label();
             this.instructorLabel = new System.Windows.Forms.Label();
             this.courseListBox = new System.Windows.Forms.GroupBox();
+            this.moduleOutputBox = new System.Windows.Forms.TextBox();
+            this.moduleSelectorCourse = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.viewButton = new System.Windows.Forms.Button();
             this.courseDisplayBox = new System.Windows.Forms.TextBox();
@@ -69,9 +72,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.createModuleButton = new System.Windows.Forms.Button();
             this.deleteModuleButton = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.moduleSelectorCourse = new System.Windows.Forms.ComboBox();
-            this.moduleOutputBox = new System.Windows.Forms.TextBox();
             this.courseCreatorBox.SuspendLayout();
             this.courseListBox.SuspendLayout();
             this.adminTabInterface.SuspendLayout();
@@ -245,6 +245,34 @@
             this.courseListBox.TabIndex = 4;
             this.courseListBox.TabStop = false;
             this.courseListBox.Text = "List of Courses (ID - Course Name)";
+            // 
+            // moduleOutputBox
+            // 
+            this.moduleOutputBox.Location = new System.Drawing.Point(4, 484);
+            this.moduleOutputBox.Multiline = true;
+            this.moduleOutputBox.Name = "moduleOutputBox";
+            this.moduleOutputBox.ReadOnly = true;
+            this.moduleOutputBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.moduleOutputBox.Size = new System.Drawing.Size(414, 162);
+            this.moduleOutputBox.TabIndex = 6;
+            // 
+            // moduleSelectorCourse
+            // 
+            this.moduleSelectorCourse.FormattingEnabled = true;
+            this.moduleSelectorCourse.Location = new System.Drawing.Point(6, 455);
+            this.moduleSelectorCourse.Name = "moduleSelectorCourse";
+            this.moduleSelectorCourse.Size = new System.Drawing.Size(412, 23);
+            this.moduleSelectorCourse.TabIndex = 5;
+            this.moduleSelectorCourse.SelectedIndexChanged += new System.EventHandler(this.moduleSelectorCourse_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(5, 437);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(113, 15);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Associated Modules";
             // 
             // label9
             // 
@@ -519,34 +547,6 @@
             this.deleteModuleButton.Text = "Delete Module";
             this.deleteModuleButton.UseVisualStyleBackColor = true;
             this.deleteModuleButton.Click += new System.EventHandler(this.deleteModuleButton_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 437);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(113, 15);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Associated Modules";
-            // 
-            // moduleSelectorCourse
-            // 
-            this.moduleSelectorCourse.FormattingEnabled = true;
-            this.moduleSelectorCourse.Location = new System.Drawing.Point(6, 455);
-            this.moduleSelectorCourse.Name = "moduleSelectorCourse";
-            this.moduleSelectorCourse.Size = new System.Drawing.Size(205, 23);
-            this.moduleSelectorCourse.TabIndex = 5;
-            this.moduleSelectorCourse.SelectedIndexChanged += new System.EventHandler(this.moduleSelectorCourse_SelectedIndexChanged);
-            // 
-            // moduleOutputBox
-            // 
-            this.moduleOutputBox.Location = new System.Drawing.Point(4, 484);
-            this.moduleOutputBox.Multiline = true;
-            this.moduleOutputBox.Name = "moduleOutputBox";
-            this.moduleOutputBox.ReadOnly = true;
-            this.moduleOutputBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.moduleOutputBox.Size = new System.Drawing.Size(414, 162);
-            this.moduleOutputBox.TabIndex = 6;
             // 
             // AdminForm
             // 
