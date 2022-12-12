@@ -300,6 +300,7 @@
             this.courseDisplayBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.courseDisplayBox.Multiline = true;
             this.courseDisplayBox.Name = "courseDisplayBox";
+            this.courseDisplayBox.ReadOnly = true;
             this.courseDisplayBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.courseDisplayBox.Size = new System.Drawing.Size(414, 159);
             this.courseDisplayBox.TabIndex = 1;
@@ -368,6 +369,7 @@
             this.outputBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.outputBox1.Multiline = true;
             this.outputBox1.Name = "outputBox1";
+            this.outputBox1.ReadOnly = true;
             this.outputBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.outputBox1.Size = new System.Drawing.Size(448, 627);
             this.outputBox1.TabIndex = 0;

@@ -255,6 +255,7 @@
             this.outputBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.outputBox1.Multiline = true;
             this.outputBox1.Name = "outputBox1";
+            this.outputBox1.ReadOnly = true;
             this.outputBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.outputBox1.Size = new System.Drawing.Size(448, 627);
             this.outputBox1.TabIndex = 0;
