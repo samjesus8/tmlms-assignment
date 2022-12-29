@@ -33,9 +33,7 @@
             this.ToFButton = new System.Windows.Forms.Button();
             this.MultiChoiceButton = new System.Windows.Forms.Button();
             this.MultiAnswerButton = new System.Windows.Forms.Button();
-            this.EssayButton = new System.Windows.Forms.Button();
             this.ShortAnswerButton = new System.Windows.Forms.Button();
-            this.MatchButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.SaveButton = new System.Windows.Forms.Button();
@@ -92,19 +90,9 @@
             this.MultiAnswerButton.UseVisualStyleBackColor = true;
             this.MultiAnswerButton.Click += new System.EventHandler(this.MultiAnswerButton_Click);
             // 
-            // EssayButton
-            // 
-            this.EssayButton.Location = new System.Drawing.Point(120, 84);
-            this.EssayButton.Name = "EssayButton";
-            this.EssayButton.Size = new System.Drawing.Size(108, 56);
-            this.EssayButton.TabIndex = 5;
-            this.EssayButton.Text = "Essay";
-            this.EssayButton.UseVisualStyleBackColor = true;
-            this.EssayButton.Click += new System.EventHandler(this.EssayButton_Click);
-            // 
             // ShortAnswerButton
             // 
-            this.ShortAnswerButton.Location = new System.Drawing.Point(234, 22);
+            this.ShortAnswerButton.Location = new System.Drawing.Point(120, 84);
             this.ShortAnswerButton.Name = "ShortAnswerButton";
             this.ShortAnswerButton.Size = new System.Drawing.Size(108, 56);
             this.ShortAnswerButton.TabIndex = 6;
@@ -112,24 +100,12 @@
             this.ShortAnswerButton.UseVisualStyleBackColor = true;
             this.ShortAnswerButton.Click += new System.EventHandler(this.ShortAnswerButton_Click);
             // 
-            // MatchButton
-            // 
-            this.MatchButton.Location = new System.Drawing.Point(234, 84);
-            this.MatchButton.Name = "MatchButton";
-            this.MatchButton.Size = new System.Drawing.Size(108, 56);
-            this.MatchButton.TabIndex = 7;
-            this.MatchButton.Text = "Match";
-            this.MatchButton.UseVisualStyleBackColor = true;
-            this.MatchButton.Click += new System.EventHandler(this.MatchButton_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ToFButton);
-            this.groupBox1.Controls.Add(this.MatchButton);
             this.groupBox1.Controls.Add(this.MultiChoiceButton);
             this.groupBox1.Controls.Add(this.ShortAnswerButton);
             this.groupBox1.Controls.Add(this.MultiAnswerButton);
-            this.groupBox1.Controls.Add(this.EssayButton);
             this.groupBox1.Location = new System.Drawing.Point(12, 275);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(351, 151);
@@ -205,9 +181,7 @@
         private Button ToFButton;
         private Button MultiChoiceButton;
         private Button MultiAnswerButton;
-        private Button EssayButton;
         private Button ShortAnswerButton;
-        private Button MatchButton;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
         private Button SaveButton;

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TrueOrFalse
+namespace MultiAnswerControl
 {
-    public partial class TrueOrFalseControl: UserControl
+    public partial class MultiAnswer: UserControl
     {
-        public TrueOrFalseControl()
+        public MultiAnswer()
         {
             InitializeComponent();
         }

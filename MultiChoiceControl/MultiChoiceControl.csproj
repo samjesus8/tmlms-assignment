@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2B0CEED4-A8AD-46B9-A829-CFBA3D5F5FD0}</ProjectGuid>
+    <ProjectGuid>{D517B8BF-6162-4E5F-A6CC-AF5110B0499B}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>TrueOrFalse</RootNamespace>
-    <AssemblyName>TrueOrFalse</AssemblyName>
+    <RootNamespace>MultiChoiceControl</RootNamespace>
+    <AssemblyName>MultiChoiceControl</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,18 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TrueOrFalse.cs">
+    <Compile Include="MultiChoice.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="TrueOrFalse.Designer.cs">
-      <DependentUpon>TrueOrFalse.cs</DependentUpon>
+    <Compile Include="MultiChoice.Designer.cs">
+      <DependentUpon>MultiChoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TrueOrFalse.resx">
-      <DependentUpon>TrueOrFalse.cs</DependentUpon>
+    <EmbeddedResource Include="MultiChoice.resx">
+      <DependentUpon>MultiChoice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,6 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MultiAnswerControl\MultiAnswerControl.csproj" />
+    <ProjectReference Include="..\MultiChoiceControl\MultiChoiceControl.csproj" />
+    <ProjectReference Include="..\ShortAnswerControl\ShortAnswerControl.csproj" />
+    <ProjectReference Include="..\TrueOrFalse\TrueOrFalse.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="TrueOrFalse">
+      <HintPath>..\TrueOrFalse\bin\Debug\TrueOrFalse.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
