@@ -9,6 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="QuizAnswerManager\Answers.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="QuizAnswerManager\Answers.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\MultiAnswerControl\MultiAnswerControl.csproj" />
     <ProjectReference Include="..\MultiChoiceControl\MultiChoiceControl.csproj" />
     <ProjectReference Include="..\ShortAnswerControl\ShortAnswerControl.csproj" />
