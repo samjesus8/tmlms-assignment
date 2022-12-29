@@ -101,9 +101,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox inputBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox trueBox;
         private System.Windows.Forms.CheckBox falseBox;
+        public System.Windows.Forms.TextBox inputBox;
     }
 }

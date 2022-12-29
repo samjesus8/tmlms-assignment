@@ -1,4 +1,6 @@
-﻿namespace TmLms.QuizApplication
+﻿using TmLms.QuizAnswerManager;
+
+namespace TmLms.QuizApplication
 {
     public partial class QuizCreator : Form
     {
@@ -44,7 +46,7 @@
 
         private void PreviousButton_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void NextButton_Click(object sender, EventArgs e)
@@ -54,7 +56,31 @@
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            var quizManager = new QuizManager();
 
+            if (QuestionType == "TOF") 
+            {
+                TrueOrFalse.TrueOrFalseControl TOF = (TrueOrFalse.TrueOrFalseControl)UserControl;
+
+                quizManager.QuestionName = TOF.inputBox.Text;
+
+                TOF.CheckAnswer();
+
+                quizManager.isTrue = TOF.isTrue;
+                quizManager.isFalse = TOF.isFalse;
+
+                bool errorCheck = quizManager.StoreQuestion(quizManager);
+                if (errorCheck == true) 
+                {
+                    MessageBox.Show("Successfully Stored Question!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else 
+                {
+                    string error = "Something went wrong storing this question \r\n" +
+                                   "Error message: " + quizManager.Error;
+                    MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

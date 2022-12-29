@@ -16,11 +16,13 @@ namespace TrueOrFalse
             if(trueBox.Checked) 
             {
                 isTrue = true;
+                isFalse = false;
                 return true;
             }
             else if (falseBox.Checked) 
             {
-                isFalse = false;
+                isFalse = true;
+                isTrue = false;
                 return true;
             }
             else 
