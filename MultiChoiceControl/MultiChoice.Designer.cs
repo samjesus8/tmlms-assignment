@@ -39,6 +39,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label2
@@ -133,10 +138,64 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Option 4";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(459, 118);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(190, 13);
+            this.label8.TabIndex = 32;
+            this.label8.Text = "Select which one is the correct answer";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(548, 169);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(66, 17);
+            this.checkBox4.TabIndex = 31;
+            this.checkBox4.Text = "Option 4";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(462, 169);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(66, 17);
+            this.checkBox3.TabIndex = 30;
+            this.checkBox3.Text = "Option 3";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(548, 146);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(66, 17);
+            this.checkBox2.TabIndex = 29;
+            this.checkBox2.Text = "Option 2";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(462, 146);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(66, 17);
+            this.checkBox1.TabIndex = 28;
+            this.checkBox1.Text = "Option 1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // MultiChoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.checkBox3);
+            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -158,15 +217,20 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox inputBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox option1Box;
-        private System.Windows.Forms.TextBox option3Box;
-        private System.Windows.Forms.TextBox option2Box;
-        private System.Windows.Forms.TextBox option4Box;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.CheckBox checkBox4;
+        public System.Windows.Forms.CheckBox checkBox3;
+        public System.Windows.Forms.CheckBox checkBox2;
+        public System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.TextBox inputBox;
+        public System.Windows.Forms.TextBox option1Box;
+        public System.Windows.Forms.TextBox option3Box;
+        public System.Windows.Forms.TextBox option2Box;
+        public System.Windows.Forms.TextBox option4Box;
     }
 }

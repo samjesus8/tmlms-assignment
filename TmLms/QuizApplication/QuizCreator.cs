@@ -6,14 +6,17 @@ namespace TmLms.QuizApplication
     {
         public UserControl UserControl = new UserControl();
         public string QuestionType = "";
+        public int QuestionId = 1;
         public QuizCreator()
         {
             InitializeComponent();
             NextButton.Enabled = false;
+            questionIDBox.Text = "Question: " + QuestionId;
         }
 
         private void ToFButton_Click(object sender, EventArgs e)
         {
+            NextButton.Enabled = true;
             QuestionType = "TOF";
             panel1.Controls.Clear();
             UserControl = new TrueOrFalse.TrueOrFalseControl();
@@ -22,6 +25,7 @@ namespace TmLms.QuizApplication
 
         private void MultiAnswerButton_Click(object sender, EventArgs e)
         {
+            NextButton.Enabled = true;
             QuestionType = "MA";
             panel1.Controls.Clear();
             UserControl = new MultiAnswerControl.MultiAnswer();
@@ -30,6 +34,7 @@ namespace TmLms.QuizApplication
 
         private void ShortAnswerButton_Click(object sender, EventArgs e)
         {
+            NextButton.Enabled = true;
             QuestionType = "S";
             panel1.Controls.Clear();
             UserControl = new ShortAnswerControl.ShortAnswer();
@@ -38,6 +43,7 @@ namespace TmLms.QuizApplication
 
         private void MultiChoiceButton_Click(object sender, EventArgs e)
         {
+            NextButton.Enabled = true;
             QuestionType = "MC";
             panel1.Controls.Clear();
             UserControl = new MultiChoiceControl.MultiChoice();
@@ -51,7 +57,7 @@ namespace TmLms.QuizApplication
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-
+            panel1.Controls.Clear();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -84,6 +90,7 @@ namespace TmLms.QuizApplication
 
             else if (QuestionType == "MA") //Multi-Answer Saving
             {
+                //Initialising bool variables for multi answers
                 bool option1 = false;
                 bool option2 = false;
                 bool option3 = false;
@@ -136,6 +143,58 @@ namespace TmLms.QuizApplication
 
                 quizManager.QuestionName = S.inputBox.Text;
                 quizManager.QuestionAnswerS = S.answerBox.Text;
+
+                bool errorCheck = quizManager.StoreQuestion(quizManager);
+                if (errorCheck == true)
+                {
+                    MessageBox.Show("Successfully Stored Question!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    string error = "Something went wrong storing this question \r\n" +
+                                   "Error message: " + quizManager.Error;
+                    MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            else if (QuestionType == "MC") 
+            {
+                MultiChoiceControl.MultiChoice MC = (MultiChoiceControl.MultiChoice)UserControl;
+
+                quizManager.QuestionName = MC.inputBox.Text;
+                quizManager.QuestionAnswerMC1 = MC.option1Box.Text;
+                quizManager.QuestionAnswerMC2 = MC.option2Box.Text;
+                quizManager.QuestionAnswerMC3 = MC.option3Box.Text;
+                quizManager.QuestionAnswerMC4 = MC.option4Box.Text;
+
+                if (MC.checkBox1.Checked == true) 
+                {
+                    quizManager.MC1 = true;
+                    quizManager.MC2 = false;
+                    quizManager.MC3 = false;
+                    quizManager.MC4 = false;
+                }
+                else if (MC.checkBox2.Checked == true) 
+                {
+                    quizManager.MC1 = false;
+                    quizManager.MC2 = true;
+                    quizManager.MC3 = false;
+                    quizManager.MC4 = false;
+                }
+                else if (MC.checkBox3.Checked == true) 
+                {
+                    quizManager.MC1 = false;
+                    quizManager.MC2 = false;
+                    quizManager.MC3 = true;
+                    quizManager.MC4 = false;
+                }
+                else if (MC.checkBox4.Checked == true) 
+                {
+                    quizManager.MC1 = false;
+                    quizManager.MC2 = false;
+                    quizManager.MC3 = false;
+                    quizManager.MC4 = true;
+                }
 
                 bool errorCheck = quizManager.StoreQuestion(quizManager);
                 if (errorCheck == true)

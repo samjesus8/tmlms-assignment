@@ -39,6 +39,7 @@
             this.SaveButton = new System.Windows.Forms.Button();
             this.NextButton = new System.Windows.Forms.Button();
             this.PreviousButton = new System.Windows.Forms.Button();
+            this.questionIDBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +116,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.questionIDBox);
             this.groupBox2.Controls.Add(this.SaveButton);
             this.groupBox2.Controls.Add(this.NextButton);
             this.groupBox2.Controls.Add(this.PreviousButton);
@@ -155,6 +157,14 @@
             this.PreviousButton.UseVisualStyleBackColor = true;
             this.PreviousButton.Click += new System.EventHandler(this.PreviousButton_Click);
             // 
+            // questionIDBox
+            // 
+            this.questionIDBox.Location = new System.Drawing.Point(313, 22);
+            this.questionIDBox.Name = "questionIDBox";
+            this.questionIDBox.ReadOnly = true;
+            this.questionIDBox.Size = new System.Drawing.Size(100, 23);
+            this.questionIDBox.TabIndex = 6;
+            // 
             // QuizCreator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -169,6 +179,7 @@
             this.Text = "QuizCreator";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,5 +198,6 @@
         private Button SaveButton;
         private Button NextButton;
         private Button PreviousButton;
+        private TextBox questionIDBox;
     }
 }
