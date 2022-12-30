@@ -16,7 +16,7 @@ namespace TmLms.QuizAnswerManager
         public string QuestionAnswerMC4 { get; set; }
 
         //Multi Answer Variables
-        public string[] MultiAnswers { get; set; }
+        public bool[] MultiAnswers { get; set; } //[0] - OPTION 1, [1] - OPTION 2, [2] - OPTION 3, [3] - OPTION 4
 
         //True or False Variables
         public bool isTrue { get; set; }
@@ -64,7 +64,7 @@ namespace TmLms.QuizAnswerManager
         public string QuestionAnswerMC2 { get; set; }
         public string QuestionAnswerMC3 { get; set; }
         public string QuestionAnswerMC4 { get; set; }
-        public string[] MultiAnswers { get; set; }
+        public bool[] MultiAnswers { get; set; }
         public bool isTrue { get; set; }
         public bool isFalse { get; set; }
     }
