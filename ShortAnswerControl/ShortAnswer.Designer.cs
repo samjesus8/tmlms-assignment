@@ -98,9 +98,9 @@
         #endregion
 
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox inputBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox answerBox;
+        public System.Windows.Forms.TextBox inputBox;
+        public System.Windows.Forms.TextBox answerBox;
     }
 }

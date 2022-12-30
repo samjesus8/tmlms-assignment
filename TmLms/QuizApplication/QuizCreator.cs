@@ -129,6 +129,26 @@ namespace TmLms.QuizApplication
                     MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+            else if (QuestionType == "S") 
+            {
+                ShortAnswerControl.ShortAnswer S = (ShortAnswerControl.ShortAnswer)UserControl;
+
+                quizManager.QuestionName = S.inputBox.Text;
+                quizManager.QuestionAnswerS = S.answerBox.Text;
+
+                bool errorCheck = quizManager.StoreQuestion(quizManager);
+                if (errorCheck == true)
+                {
+                    MessageBox.Show("Successfully Stored Question!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    string error = "Something went wrong storing this question \r\n" +
+                                   "Error message: " + quizManager.Error;
+                    MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
