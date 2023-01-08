@@ -71,6 +71,7 @@
             // 
             // moduleSelectorBox
             // 
+            this.moduleSelectorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.moduleSelectorBox.FormattingEnabled = true;
             this.moduleSelectorBox.Location = new System.Drawing.Point(6, 275);
             this.moduleSelectorBox.Name = "moduleSelectorBox";
@@ -90,6 +91,7 @@
             // 
             // courseSelectorBox
             // 
+            this.courseSelectorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.courseSelectorBox.FormattingEnabled = true;
             this.courseSelectorBox.Location = new System.Drawing.Point(6, 190);
             this.courseSelectorBox.Name = "courseSelectorBox";

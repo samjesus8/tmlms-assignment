@@ -88,6 +88,7 @@
             // 
             // creditsBox1
             // 
+            this.creditsBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.creditsBox1.FormattingEnabled = true;
             this.creditsBox1.Items.AddRange(new object[] {
             "20",
@@ -133,6 +134,7 @@
             // 
             // courseSelectorBox
             // 
+            this.courseSelectorBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.courseSelectorBox.FormattingEnabled = true;
             this.courseSelectorBox.Location = new System.Drawing.Point(5, 129);
             this.courseSelectorBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

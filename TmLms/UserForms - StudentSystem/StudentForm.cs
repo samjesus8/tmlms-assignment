@@ -32,6 +32,7 @@ namespace TmLms.UserForms
         private void courseSelectorBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             moduleSelectorBox.Items.Clear();
+            moduleViewBox.Text = string.Empty;
             try 
             {
                 var item = courseSelectorBox.SelectedItem.ToString().Split(" ");
