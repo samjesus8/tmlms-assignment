@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <Content Include="QuizAnswerManager\Answers.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
@@ -26,6 +26,7 @@
     <ProjectReference Include="..\MultiAnswerControl\MultiAnswerControl.csproj" />
     <ProjectReference Include="..\MultiChoiceControl\MultiChoiceControl.csproj" />
     <ProjectReference Include="..\ShortAnswerControl\ShortAnswerControl.csproj" />
+    <ProjectReference Include="..\TrueOrFalsePlay\TrueOrFalsePlay.csproj" />
     <ProjectReference Include="..\TrueOrFalse\TrueOrFalse.csproj" />
   </ItemGroup>
 

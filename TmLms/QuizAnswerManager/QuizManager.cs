@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace TmLms.QuizAnswerManager
 {
@@ -59,9 +60,39 @@ namespace TmLms.QuizAnswerManager
 
         public (Dictionary<int, QuizManager>, bool) LoadQuestions() //Returns Dictionary of Questions + True/False to make sure operation was successful
         {
-            using (StreamReader sr = new StreamReader(System.AppDomain.CurrentDomain.BaseDirectory + "/QuizAnswerManager/Answers.json")) 
+            try 
             {
-                var json = sr.ReadToEnd();
+                using (StreamReader sr = new StreamReader(System.AppDomain.CurrentDomain.BaseDirectory + "/QuizAnswerManager/Answers.json"))
+                {
+                    Dictionary<int, QuizManager> questions = new Dictionary<int, QuizManager>(); //The dictionary to return
+                    int questionNo = 1;
+
+                    var json = sr.ReadToEnd();
+                    JSONObject jsonObj = JsonConvert.DeserializeObject<JSONObject>(json);
+
+                    for (int i = 0; i < jsonObj.members.Length; i++) //Loop through every member and sort by question type
+                    {
+                        if (jsonObj.members[i].QuestionType == "TOF") //True Or False question types
+                        {
+                            var tempCreator = new QuizManager() //Temporary class to store each member
+                            {
+                                QuestionName = jsonObj.members[i].QuestionName,
+                                isTrue = jsonObj.members[i].isTrue,
+                                isFalse = jsonObj.members[i].isFalse,
+                            };
+
+                            questions.Add(questionNo, tempCreator); //Adding the question to the dictionary and incrementing questionNo
+                            questionNo++;
+                        }
+                    }
+
+                    return (questions, true);
+                }
+            }
+            catch(Exception ex) 
+            { 
+                Error = ex.Message;
+                return (null, false);
             }
         }
     }
@@ -74,6 +105,7 @@ namespace TmLms.QuizAnswerManager
     class Member 
     {
         public string QuestionName { get; set; }
+        public string QuestionType { get; set; }
         public string QuestionAnswerS { get; set; }
         public string QuestionAnswerMC1 { get; set; }
         public string QuestionAnswerMC2 { get; set; }

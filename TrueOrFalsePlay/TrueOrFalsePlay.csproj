@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{47DDA646-A9A4-42A2-B4A7-E1FDAADA2FDF}</ProjectGuid>
+    <ProjectGuid>{E3F38936-718B-40BD-ACE8-B27FE26BBCE9}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>TrueOrFalse_Play_</RootNamespace>
-    <AssemblyName>TrueOrFalse%28Play%29</AssemblyName>
+    <RootNamespace>TrueOrFalsePlay</RootNamespace>
+    <AssemblyName>TrueOrFalsePlay</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,18 +42,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ToF.cs">
+    <Compile Include="ToFPlay.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ToF.Designer.cs">
-      <DependentUpon>ToF.cs</DependentUpon>
+    <Compile Include="ToFPlay.Designer.cs">
+      <DependentUpon>ToFPlay.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ToF.resx">
-      <DependentUpon>ToF.cs</DependentUpon>
+    <EmbeddedResource Include="ToFPlay.resx">
+      <DependentUpon>ToFPlay.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

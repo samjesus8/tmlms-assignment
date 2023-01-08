@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TrueOrFalse_Play_
+namespace TrueOrFalsePlay
 {
-    public partial class ToF: UserControl
+    public partial class ToFPlay: UserControl
     {
-        public ToF()
+        public ToFPlay()
         {
             InitializeComponent();
         }
