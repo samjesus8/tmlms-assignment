@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace TmLms.QuizApplication
+﻿namespace TmLms.QuizApplication
 {
     public partial class QuizBuilderMenu : Form
     {
@@ -25,7 +15,8 @@ namespace TmLms.QuizApplication
 
         private void playButton_Click(object sender, EventArgs e)
         {
-
+            var QuizPlayer = new QuizPlayer();
+            QuizPlayer.Show();
         }
 
         private void viewButton_Click(object sender, EventArgs e)

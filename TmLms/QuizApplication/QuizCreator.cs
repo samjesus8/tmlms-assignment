@@ -52,12 +52,13 @@ namespace TmLms.QuizApplication
 
         private void PreviousButton_Click(object sender, EventArgs e)
         {
-            
+            QuestionId = QuestionId - 1;
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
+            QuestionId = QuestionId + 1;
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
