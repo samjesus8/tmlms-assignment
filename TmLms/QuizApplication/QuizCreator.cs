@@ -70,6 +70,7 @@ namespace TmLms.QuizApplication
                 TrueOrFalse.TrueOrFalseControl TOF = (TrueOrFalse.TrueOrFalseControl)UserControl;
 
                 quizManager.QuestionName = TOF.inputBox.Text;
+                quizManager.QuestionType = "TOF";
 
                 TOF.CheckAnswer();
 
@@ -100,6 +101,7 @@ namespace TmLms.QuizApplication
                 MultiAnswerControl.MultiAnswer MA = (MultiAnswerControl.MultiAnswer)UserControl;
 
                 quizManager.QuestionName = MA.inputBox.Text;
+                quizManager.QuestionType = "MA";
                 quizManager.QuestionAnswerMC1 = MA.option1Box.Text;
                 quizManager.QuestionAnswerMC2 = MA.option2Box.Text;
                 quizManager.QuestionAnswerMC3 = MA.option3Box.Text;
@@ -143,6 +145,7 @@ namespace TmLms.QuizApplication
                 ShortAnswerControl.ShortAnswer S = (ShortAnswerControl.ShortAnswer)UserControl;
 
                 quizManager.QuestionName = S.inputBox.Text;
+                quizManager.QuestionType = "S";
                 quizManager.QuestionAnswerS = S.answerBox.Text;
 
                 bool errorCheck = quizManager.StoreQuestion(quizManager);
@@ -163,6 +166,7 @@ namespace TmLms.QuizApplication
                 MultiChoiceControl.MultiChoice MC = (MultiChoiceControl.MultiChoice)UserControl;
 
                 quizManager.QuestionName = MC.inputBox.Text;
+                quizManager.QuestionType = "MC";
                 quizManager.QuestionAnswerMC1 = MC.option1Box.Text;
                 quizManager.QuestionAnswerMC2 = MC.option2Box.Text;
                 quizManager.QuestionAnswerMC3 = MC.option3Box.Text;

@@ -5,6 +5,7 @@ namespace TmLms.QuizAnswerManager
     public class QuizManager
     {
         public string QuestionName { get; set; }
+        public string QuestionType { get; set; } //TOF - True or False, MA - Multi Answer, S - Short Answer, MC - Multiple Choice
 
         //Single Answer Variables
         public string QuestionAnswerS { get; set; }
@@ -53,6 +54,14 @@ namespace TmLms.QuizAnswerManager
             {
                 Error = ex.Message;
                 return false;
+            }
+        }
+
+        public (Dictionary<int, QuizManager>, bool) LoadQuestions() //Returns Dictionary of Questions + True/False to make sure operation was successful
+        {
+            using (StreamReader sr = new StreamReader(System.AppDomain.CurrentDomain.BaseDirectory + "/QuizAnswerManager/Answers.json")) 
+            {
+                var json = sr.ReadToEnd();
             }
         }
     }

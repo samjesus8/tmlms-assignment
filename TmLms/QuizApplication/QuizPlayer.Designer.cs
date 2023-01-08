@@ -28,7 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.loadToFQuestionButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(12, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(776, 238);
+            this.panel1.TabIndex = 2;
+            // 
+            // loadToFQuestionButton
+            // 
+            this.loadToFQuestionButton.Location = new System.Drawing.Point(12, 256);
+            this.loadToFQuestionButton.Name = "loadToFQuestionButton";
+            this.loadToFQuestionButton.Size = new System.Drawing.Size(123, 49);
+            this.loadToFQuestionButton.TabIndex = 3;
+            this.loadToFQuestionButton.Text = "Generate Random Question";
+            this.loadToFQuestionButton.UseVisualStyleBackColor = true;
+            this.loadToFQuestionButton.Click += new System.EventHandler(this.loadQuestionButton_Click);
             // 
             // QuizPlayer
             // 
@@ -36,6 +55,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.loadToFQuestionButton);
+            this.Controls.Add(this.panel1);
             this.Name = "QuizPlayer";
             this.Text = "QuizPlayer";
             this.ResumeLayout(false);
@@ -43,5 +64,8 @@
         }
 
         #endregion
+
+        private Panel panel1;
+        private Button loadToFQuestionButton;
     }
 }
