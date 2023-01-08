@@ -45,7 +45,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.createModuleButton = new System.Windows.Forms.Button();
-            this.deleteModuleButton = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.outputBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
@@ -78,7 +77,6 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.createModuleButton);
-            this.groupBox1.Controls.Add(this.deleteModuleButton);
             this.groupBox1.Location = new System.Drawing.Point(6, 20);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
@@ -226,17 +224,6 @@
             this.createModuleButton.UseVisualStyleBackColor = true;
             this.createModuleButton.Click += new System.EventHandler(this.createModuleButton_Click_1);
             // 
-            // deleteModuleButton
-            // 
-            this.deleteModuleButton.Location = new System.Drawing.Point(179, 20);
-            this.deleteModuleButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.deleteModuleButton.Name = "deleteModuleButton";
-            this.deleteModuleButton.Size = new System.Drawing.Size(160, 82);
-            this.deleteModuleButton.TabIndex = 2;
-            this.deleteModuleButton.Text = "Delete Module";
-            this.deleteModuleButton.UseVisualStyleBackColor = true;
-            this.deleteModuleButton.Click += new System.EventHandler(this.deleteModuleButton_Click_1);
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.outputBox1);
@@ -300,7 +287,6 @@
         private Label label6;
         private Label label7;
         private Button createModuleButton;
-        private Button deleteModuleButton;
         private GroupBox groupBox2;
         private TextBox outputBox1;
     }

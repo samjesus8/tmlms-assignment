@@ -209,11 +209,6 @@ namespace TmLms.UserForms
 
         }
 
-        private void deleteModuleButton_Click(object sender, EventArgs e)
-        {
-            //Need to implement
-        }
-
         private void LoadExistingCourses() 
         {
             foreach (var courses in Program.tmEngine.CourseDictionary) 

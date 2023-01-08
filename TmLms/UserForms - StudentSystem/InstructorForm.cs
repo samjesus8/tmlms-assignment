@@ -83,11 +83,6 @@ namespace TmLms.UserForms
             outputBox1.Text = OutMsg;
         }
 
-        private void deleteModuleButton_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void InstructorForm_Load(object sender, EventArgs e)
         {
             //Dummy Data for instructors

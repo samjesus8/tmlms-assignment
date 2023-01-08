@@ -163,6 +163,7 @@
             this.moduleViewBox.Multiline = true;
             this.moduleViewBox.Name = "moduleViewBox";
             this.moduleViewBox.ReadOnly = true;
+            this.moduleViewBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.moduleViewBox.Size = new System.Drawing.Size(411, 183);
             this.moduleViewBox.TabIndex = 1;
             // 
