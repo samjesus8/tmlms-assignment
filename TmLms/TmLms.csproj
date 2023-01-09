@@ -24,8 +24,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MultiAnswerControl\MultiAnswerControl.csproj" />
+    <ProjectReference Include="..\MultiAnswerPlay\MultiAnswerPlay.csproj" />
     <ProjectReference Include="..\MultiChoiceControl\MultiChoiceControl.csproj" />
+    <ProjectReference Include="..\MultiChoicePlay\MultiChoicePlay.csproj" />
     <ProjectReference Include="..\ShortAnswerControl\ShortAnswerControl.csproj" />
+    <ProjectReference Include="..\ShortAnswerPlay\ShortAnswerPlay.csproj" />
     <ProjectReference Include="..\TrueOrFalsePlay\TrueOrFalsePlay.csproj" />
     <ProjectReference Include="..\TrueOrFalse\TrueOrFalse.csproj" />
   </ItemGroup>
