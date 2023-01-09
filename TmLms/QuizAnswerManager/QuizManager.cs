@@ -84,6 +84,44 @@ namespace TmLms.QuizAnswerManager
                             questions.Add(questionNo, tempCreator); //Adding the question to the dictionary and incrementing questionNo
                             questionNo++;
                         }
+                        else if (jsonObj.members[i].QuestionType == "MA") 
+                        {
+                            var tempCreator = new QuizManager()
+                            {
+                                QuestionName = jsonObj.members[i].QuestionName,
+                                QuestionAnswerMC1 = jsonObj.members[i].QuestionAnswerMC1,
+                                QuestionAnswerMC2 = jsonObj.members[i].QuestionAnswerMC2,
+                                QuestionAnswerMC3 = jsonObj.members[i].QuestionAnswerMC3,
+                                QuestionAnswerMC4 = jsonObj.members[i].QuestionAnswerMC4,
+                                MultiAnswers = jsonObj.members[i].MultiAnswers
+                            };
+
+                            questions.Add(questionNo, tempCreator);
+                            questionNo++;
+                        }
+                        else if (jsonObj.members[i].QuestionType == "S") 
+                        {
+                            var tempCreator = new QuizManager()
+                            {
+                                QuestionName = jsonObj.members[i].QuestionName,
+                                QuestionAnswerS = jsonObj.members[i].QuestionAnswerS
+                            };
+                        }
+                        else if (jsonObj.members[i].QuestionType == "MC") 
+                        {
+                            var tempCreator = new QuizManager()
+                            {
+                                QuestionName = jsonObj.members[i].QuestionName,
+                                QuestionAnswerMC1 = jsonObj.members[i].QuestionAnswerMC1,
+                                QuestionAnswerMC2 = jsonObj.members[i].QuestionAnswerMC2,
+                                QuestionAnswerMC3 = jsonObj.members[i].QuestionAnswerMC3,
+                                QuestionAnswerMC4 = jsonObj.members[i].QuestionAnswerMC4,
+                                MC1 = jsonObj.members[i].MC1,
+                                MC2 = jsonObj.members[i].MC2,
+                                MC3 = jsonObj.members[i].MC3,
+                                MC4 = jsonObj.members[i].MC4,
+                            };
+                        }
                     }
 
                     return (questions, true);
