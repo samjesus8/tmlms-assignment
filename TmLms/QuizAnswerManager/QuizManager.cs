@@ -58,7 +58,7 @@ namespace TmLms.QuizAnswerManager
             }
         }
 
-        public (Dictionary<int, QuizManager>, bool) LoadQuestions() //Returns Dictionary of Questions + True/False to make sure operation was successful
+        public (Dictionary<int, QuizManager>, bool) LoadQuestions(string questionType) //Returns Dictionary of Questions + True/False to make sure operation was successful
         {
             try 
             {
@@ -72,7 +72,7 @@ namespace TmLms.QuizAnswerManager
 
                     for (int i = 0; i < jsonObj.members.Length; i++) //Loop through every member and sort by question type
                     {
-                        if (jsonObj.members[i].QuestionType == "TOF") //True Or False question types
+                        if (jsonObj.members[i].QuestionType == "TOF" && questionType == "TOF") //True Or False question types
                         {
                             var tempCreator = new QuizManager() //Temporary class to store each member
                             {
@@ -84,7 +84,7 @@ namespace TmLms.QuizAnswerManager
                             questions.Add(questionNo, tempCreator); //Adding the question to the dictionary and incrementing questionNo
                             questionNo++;
                         }
-                        else if (jsonObj.members[i].QuestionType == "MA") 
+                        else if (jsonObj.members[i].QuestionType == "MA" && questionType == "MA") 
                         {
                             var tempCreator = new QuizManager()
                             {
@@ -99,7 +99,7 @@ namespace TmLms.QuizAnswerManager
                             questions.Add(questionNo, tempCreator);
                             questionNo++;
                         }
-                        else if (jsonObj.members[i].QuestionType == "S") 
+                        else if (jsonObj.members[i].QuestionType == "S" && questionType == "S") 
                         {
                             var tempCreator = new QuizManager()
                             {
@@ -107,7 +107,7 @@ namespace TmLms.QuizAnswerManager
                                 QuestionAnswerS = jsonObj.members[i].QuestionAnswerS
                             };
                         }
-                        else if (jsonObj.members[i].QuestionType == "MC") 
+                        else if (jsonObj.members[i].QuestionType == "MC" && questionType == "MC") 
                         {
                             var tempCreator = new QuizManager()
                             {
