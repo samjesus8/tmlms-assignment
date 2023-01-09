@@ -84,7 +84,7 @@ namespace TmLms.QuizAnswerManager
                             questions.Add(questionNo, tempCreator); //Adding the question to the dictionary and incrementing questionNo
                             questionNo++;
                         }
-                        else if (jsonObj.members[i].QuestionType == "MA" && questionType == "MA") 
+                        if (jsonObj.members[i].QuestionType == "MA" && questionType == "MA") 
                         {
                             var tempCreator = new QuizManager()
                             {
@@ -99,15 +99,18 @@ namespace TmLms.QuizAnswerManager
                             questions.Add(questionNo, tempCreator);
                             questionNo++;
                         }
-                        else if (jsonObj.members[i].QuestionType == "S" && questionType == "S") 
+                        if (jsonObj.members[i].QuestionType == "S" && questionType == "S") 
                         {
                             var tempCreator = new QuizManager()
                             {
                                 QuestionName = jsonObj.members[i].QuestionName,
                                 QuestionAnswerS = jsonObj.members[i].QuestionAnswerS
                             };
+
+                            questions.Add(questionNo, tempCreator);
+                            questionNo++;
                         }
-                        else if (jsonObj.members[i].QuestionType == "MC" && questionType == "MC") 
+                        if (jsonObj.members[i].QuestionType == "MC" && questionType == "MC") 
                         {
                             var tempCreator = new QuizManager()
                             {
@@ -121,6 +124,9 @@ namespace TmLms.QuizAnswerManager
                                 MC3 = jsonObj.members[i].MC3,
                                 MC4 = jsonObj.members[i].MC4,
                             };
+
+                            questions.Add(questionNo, tempCreator);
+                            questionNo++;
                         }
                     }
 
